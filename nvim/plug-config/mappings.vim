@@ -4,3 +4,6 @@ map <leader>s <ESC>:vs<CR><C-W>w
 map <leader>q <ESC>:q<CR>
 map <leader>e <ESC>:CocCommand explorer<CR>
 map <leader>w <ESC><C-W>w
+map <leader>] <ESC>:bn<CR>
+map <leader>[ <ESC>:bp<CR>
+map <leader>/ :term<CR>
