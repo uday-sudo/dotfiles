@@ -1,0 +1,19 @@
+"normal commands
+set history=150
+set encoding=utf-8
+set termguicolors
+set number 
+set noswapfile
+set scrolloff=10
+set backspace=indent,eol,start
+set shiftwidth=4
+set tabstop=4
+set mouse=a
+set incsearch
+set ignorecase
+set smartcase
+syntax on
+colorscheme onedark
+let g:airline_theme='onedark'
+let g:airline_powerline_fonts = 1
+set cmdheight=1
