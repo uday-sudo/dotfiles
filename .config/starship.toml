@@ -1,0 +1,20 @@
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+${custom.kubeselect}\
+$line_break\
+$status\
+$shell\
+$character"""
+
+[gcloud]
+disabled = true
+
+[custom.kubeselect]
+when = "true"
+command = "/Users/zerok/bin/kubeselect status"
+style = "bold blue"
+format = "⛵️ [($output)]($style) "
