@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<channel name="xfce4-panel" version="1.0">
+  <property name="panels" type="array">
+    <value type="int" value="0"/>
+    <property name="panel-0" type="empty">
+      <property name="position" type="string" value="p=6;x=960;y=13"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="8"/>
+        <value type="int" value="13"/>
+        <value type="int" value="7"/>
+        <value type="int" value="4"/>
+        <value type="int" value="14"/>
+        <value type="int" value="11"/>
+        <value type="int" value="9"/>
+        <value type="int" value="2"/>
+        <value type="int" value="6"/>
+        <value type="int" value="10"/>
+        <value type="int" value="5"/>
+        <value type="int" value="12"/>
+        <value type="int" value="1"/>
+      </property>
+      <property name="role" type="string" value="xfce4-panel-12965750720"/>
+      <property name="length-adjust" type="bool" value="true"/>
+      <property name="background-style" type="uint" value="1"/>
+      <property name="size" type="uint" value="27"/>
+      <property name="mode" type="uint" value="0"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="disable-struts" type="bool" value="false"/>
+      <property name="icon-size" type="uint" value="16"/>
+      <property name="nrows" type="uint" value="1"/>
+      <property name="enter-opacity" type="uint" value="100"/>
+      <property name="leave-opacity" type="uint" value="100"/>
+      <property name="background-rgba" type="array">
+        <value type="double" value="0.141176"/>
+        <value type="double" value="0.121569"/>
+        <value type="double" value="0.192157"/>
+        <value type="double" value="1.000000"/>
+      </property>
+    </property>
+    <property name="dark-mode" type="bool" value="true"/>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-4" type="string" value="pager">
+      <property name="rows" type="uint" value="1"/>
+      <property name="miniature-view" type="bool" value="true"/>
+    </property>
+    <property name="plugin-6" type="string" value="systray">
+      <property name="names-visible" type="array">
+        <value type="string" value="pnmixer"/>
+        <value type="string" value="manjaro-settings-manager-daemon"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="orage"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="blueman-applet"/>
+        <value type="string" value="clipman"/>
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="xnoise"/>
+      </property>
+      <property name="show-frame" type="bool" value="false"/>
+      <property name="known-legacy-items" type="array">
+        <value type="string" value="xfce4-power-manager"/>
+        <value type="string" value="xfce terminal"/>
+        <value type="string" value="thunar"/>
+        <value type="string" value="pamac-tray"/>
+        <value type="string" value="networkmanager applet"/>
+        <value type="string" value="clipman"/>
+      </property>
+      <property name="known-items" type="array">
+        <value type="string" value="Airtame1"/>
+        <value type="string" value="gdlauncher1"/>
+        <value type="string" value="steam"/>
+        <value type="string" value="qBittorrent"/>
+        <value type="string" value="discord1"/>
+        <value type="string" value="vlc"/>
+        <value type="string" value="MSM Notifier"/>
+        <value type="string" value="blueman"/>
+      </property>
+      <property name="icon-size" type="int" value="21"/>
+      <property name="hidden-items" type="array">
+        <value type="string" value="MSM Notifier"/>
+      </property>
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="hide-new-items" type="bool" value="false"/>
+      <property name="symbolic-icons" type="bool" value="false"/>
+      <property name="menu-is-primary" type="bool" value="false"/>
+      <property name="hidden-legacy-items" type="array">
+        <value type="string" value="clipman"/>
+        <value type="string" value="pamac-tray"/>
+      </property>
+    </property>
+    <property name="plugin-7" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-9" type="string" value="pulseaudio">
+      <property name="enable-keyboard-shortcuts" type="bool" value="true"/>
+      <property name="mpris-players" type="string" value="chromium.instance10476;chromium.instance10852;chromium.instance11418;chromium.instance11901;chromium.instance12576;chromium.instance12687;chromium.instance1316;chromium.instance1347;chromium.instance13562;chromium.instance14017;chromium.instance1416;chromium.instance1425;chromium.instance1426;chromium.instance14517;chromium.instance1469;chromium.instance1527;chromium.instance1546;chromium.instance1561;chromium.instance1569;chromium.instance15816;chromium.instance1610;chromium.instance1624;chromium.instance1704;chromium.instance1708;chromium.instance18092;chromium.instance18327;chromium.instance18358;chromium.instance1846;chromium.instance1859;chromium.instance2060;chromium.instance20934;chromium.instance23656;chromium.instance23704;chromium.instance24033;chromium.instance25245;chromium.instance27992;chromium.instance28518;chromium.instance33467;chromium.instance33766;chromium.instance34196;chromium.instance3456;chromium.instance34747;chromium.instance35829;chromium.instance38247;chromium.instance39653;chromium.instance4033;chromium.instance40791;chromium.instance42233;chromium.instance4236;chromium.instance43427;chromium.instance4843;chromium.instance48487;chromium.instance5363;chromium.instance5455;chromium.instance58259;chromium.instance6096;chromium.instance6260;chromium.instance63339;chromium.instance7746;chromium.instance8669;firefox.instance107029;firefox.instance10925;firefox.instance12387;firefox.instance12557;firefox.instance12559;firefox.instance1266;firefox.instance1277;firefox.instance1290;firefox.instance1292;firefox.instance1303;firefox.instance13260;firefox.instance1336;firefox.instance1383;firefox.instance1386;firefox.instance1388;firefox.instance1391;firefox.instance1392;firefox.instance1399;firefox.instance1402;firefox.instance1414;firefox.instance1421;firefox.instance1436;firefox.instance1449;firefox.instance14706;firefox.instance1474;firefox.instance1487;firefox.instance1508;firefox.instance1511;firefox.instance1534;firefox.instance1537;firefox.instance1540;firefox.instance1550;firefox.instance1558;firefox.instance1561;firefox.instance1565;firefox.instance1566;firefox.instance1574;firefox.instance16210;firefox.instance1623;firefox.instance1636;firefox.instance1656;firefox.instance1660;firefox.instance1663;firefox.instance1705;firefox.instance17219;firefox.instance1750;firefox.instance19006;firefox.instance2146;firefox.instance2255;firefox.instance2596;firefox.instance26221;firefox.instance26934;firefox.instance28885;firefox.instance2954;firefox.instance3595;firefox.instance4068;firefox.instance4298;firefox.instance48018;firefox.instance55002;firefox.instance77481;firefox.instance9425;spotify;vlc"/>
+    </property>
+    <property name="plugin-8" type="string" value="whiskermenu"/>
+    <property name="plugin-5" type="string" value="clock">
+      <property name="mode" type="uint" value="2"/>
+      <property name="digital-format" type="string" value="%a %_d %b, %R"/>
+    </property>
+    <property name="plugin-1" type="string" value="showdesktop"/>
+    <property name="plugin-10" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-11" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="clipman" type="empty">
+      <property name="tweaks" type="empty">
+        <property name="inhibit" type="bool" value="false"/>
+      </property>
+    </property>
+    <property name="plugin-12" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-14" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-2" type="string" value="notification-plugin"/>
+    <property name="plugin-13" type="string" value="docklike"/>
+  </property>
+  <property name="configver" type="int" value="2"/>
+</channel>
