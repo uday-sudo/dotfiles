@@ -44,8 +44,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/uday/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/uday/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/uday/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/uday/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/uday/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/uday/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?.lua;/home/uday/.cache/nvim/packer_hererocks/2.0.5/share/lua/5.1/?/init.lua;/home/uday/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?.lua;/home/uday/.cache/nvim/packer_hererocks/2.0.5/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/uday/.cache/nvim/packer_hererocks/2.0.5/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -69,49 +69,17 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["aerial.nvim"] = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/aerial.nvim"
+    path = "/home/uday/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim"
   },
-  ["formatter.nvim"] = {
+  ["nvim-tree.lua"] = {
     loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/formatter.nvim"
+    path = "/home/uday/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
   },
-  ["material.nvim"] = {
+  ["presence.nvim"] = {
     loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/material.nvim"
-  },
-  neon = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/neon"
-  },
-  ["nvim-autopairs"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
-  },
-  ["nvim-compe"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/nvim-compe"
-  },
-  ["nvim-lspconfig"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
-  },
-  ["nvim-lspinstall"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/nvim-lspinstall"
-  },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/onedark.vim"
-  },
-  ["packer.nvim"] = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  },
-  sonokai = {
-    loaded = true,
-    path = "/home/uday/.local/share/nvim/site/pack/packer/start/sonokai"
+    path = "/home/uday/.local/share/nvim/site/pack/packer/start/presence.nvim"
   }
 }
 
