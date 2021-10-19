@@ -1,19 +1,19 @@
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect" --You must set completeopt to menuone,noselect
 
 require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
---[[
+  enabled = true;
+  autocomplete = true;
+  debug = false;
+  min_length = 1;
+  preselect = 'enable';
+  throttle_time = 80;
+  source_timeout = 200;
+  incomplete_delay = 400;
+  max_abbr_width = 100;
+  max_kind_width = 100;
+  max_menu_width = 100;
+  documentation = false;
+
   source = {
     path = true;
     buffer = true;
@@ -23,44 +23,18 @@ require'compe'.setup {
     nvim_lua = true;
     spell = false;
     tags = true;
-    snippets_nvim = true;
+    snippets_nvim = false;
     treesitter = true;
   };
 }
---]]
-    source = {
-        path = {kind = "   (Path)"},
-        buffer = {kind = "   (Buffer)"},
-        calc = {kind = "   (Calc)"},
-        vsnip = {kind = "   (Snippet)"},
-        nvim_lsp = {kind = "   (LSP)"},
-        -- nvim_lua = {kind = "  "},
-		nvim_lua = false,
-        spell = false,
-        tags = false,
-        vim_dadbod_completion = false,
-        -- snippets_nvim = {kind = "  "},
-        -- ultisnips = {kind = "  "},
-        treesitter = false,
-    }
-        -- for emoji press : (idk if that in compe tho)
-    }
+
+--inoremap <silent><expr> <C-Space> compe#complete()
+--inoremap <silent><expr> <CR>      compe#confirm(luaeval("require 'nvim-autopairs'.autopairs_cr()"))
+--inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+--inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+--inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
---for tab autocompletion
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
@@ -72,7 +46,7 @@ local check_back_space = function()
     else
         return false
     end
-end
+end 
 
 -- Use (s-)tab to:
 --- move to prev/next item in completion menuone
@@ -98,8 +72,6 @@ _G.s_tab_complete = function()
     return t "<S-Tab>"
   end
 end
-
-
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})

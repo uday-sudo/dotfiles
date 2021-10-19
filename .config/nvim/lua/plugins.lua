@@ -62,7 +62,7 @@ return require('packer').startup(function()
     use {
         'stevearc/aerial.nvim',
         config = function()
-            require('config/lualine')
+            require('config/aerial')
         end,
         requires = {
             'kyazdani42/nvim-web-devicons', opt = true
