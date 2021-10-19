@@ -9,6 +9,8 @@ Apps: Picom
       lxappearance
       notify-osd
       kmix
+      oh my zsh
+      powerlevel10k
 
 
 Fonts needed: Noto Sans Regular
