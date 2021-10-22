@@ -10,13 +10,36 @@ return require('packer').startup(function()
   use 'joshdick/onedark.vim'
   use 'sainnhe/gruvbox-material'
   use "Pocco81/Catppuccino.nvim"
+  use {'MordechaiHadad/nvim-papadark', requires = {'rktjmp/lush.nvim'}}
+  use "sainnhe/everforest"
+  use "elianiva/gruvy.nvim"
 
+
+    --for notetaking and usual day to day stuff
+    use "freitass/todo.txt-vim"  --Just a todo list plugin
+    use "vimwiki/vimwiki"        --VimWiki to make notes
+    use {
+        'iamcco/markdown-preview.nvim',   --the name says it all
+            run = function() vim.fn['mkdp#util#install']() end,
+            ft = {'markdown'},
+        config = function()
+            require('config/markdownpreview')
+        end
+    }
 
     -- LSP components for that fancy IDE stuff in here
     use {
         'neovim/nvim-lspconfig',
         config = function()
             require('config/nvim-lspconfig')
+        end
+    }
+
+    -- Transparency
+    use {
+        'xiyaowong/nvim-transparent',
+        config = function()
+            require('config/transparent')
         end
     }
 
@@ -28,7 +51,7 @@ return require('packer').startup(function()
     }
 
     --use'ray-x/lsp_signature.nvim'
-    use 'kabouzeid/nvim-lspinstall'
+    use 'williamboman/nvim-lsp-installer'
 
     use {
         'hrsh7th/nvim-compe',
@@ -57,8 +80,21 @@ return require('packer').startup(function()
 
     -- LSP bs ends here
 
-    -- for getting code outline (variables and functions)
+    
+    
+    --Tabout like a pro
+    use {
+        'abecodes/tabout.nvim',
+        config = function()
+            require('config/tabout')
+        end,
+            wants = {'nvim-treesitter'}, -- or require if not used so far
+            --after = {'completion-nvim'} -- if a completion plugin is using tabs load it before
+    }
 
+
+    -- for getting code outline (variables and functions)
+--[[
     use {
         'stevearc/aerial.nvim',
         config = function()
@@ -68,7 +104,7 @@ return require('packer').startup(function()
             'kyazdani42/nvim-web-devicons', opt = true
         }
     }
-
+--]]
       --register preview and handling
     use 'gennaro-tedesco/nvim-peekup'
 

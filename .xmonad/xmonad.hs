@@ -137,6 +137,7 @@ myStartupHook = do
     spawnOnce "nm-applet &"
     spawnOnce "blueman-applet &"
     spawnOnce "xfce4-power-manager &"
+    spawnOnce "/usr/lib/xfce4/notifyd/xfce4-notifyd"
     spawnOnce "kmix &"
     --spawnOnce "volumeicon &"
 
