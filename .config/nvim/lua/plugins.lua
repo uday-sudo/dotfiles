@@ -26,6 +26,7 @@ return require('packer').startup(function()
             require('config/markdownpreview')
         end
     }
+    use "jbyuki/nabla.nvim"
 
     -- LSP components for that fancy IDE stuff in here
     use {
@@ -141,12 +142,12 @@ return require('packer').startup(function()
             require('config/nvim-autopairs')
         end
     }
-
+--[[
     use {
         'lervag/vimtex',
         config = function()
             require('config/vimtex')
         end
     }
-
+--]]
 end)

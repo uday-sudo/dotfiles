@@ -108,12 +108,12 @@ myFocusFollowsMouse = False
 myClickJustFocuses :: Bool        -- Whether clicking on a window to focus also passes the click to the window
 myClickJustFocuses = False
 
-myBorderWidth   = 4               -- Width of the window border in pixels.
+myBorderWidth   = 2               -- Width of the window border in pixels.
 
 myModMask       = mod4Mask        -- modMask lets you specify which modkey you want to use, "windows key" is mod4Mask.  
 
-myNormalBorderColor  = "#29262f"  -- Border colors for unfocused and focused windows, respectively.
-myFocusedBorderColor = "#46d9ff"
+myNormalBorderColor  = "#575757"  -- Border colors for unfocused and focused windows, respectively.
+myFocusedBorderColor = "#bb7e0d"  --"#2adada"
 
 myFont :: String
 myFont = "xft:DejaVuSansMono Nerd Font Mono Book:regular:size=11:antialias=true:hinting=true"
@@ -132,7 +132,7 @@ myStartupHook = do
     spawnOnce "picom &"
     spawnOnce "nitrogen --random --set-zoom-fill &"   -- if you prefer nitrogen to feh
     setWMName "LG3D"
-    spawnOnce "trayer --edge top --align right --margin 4 --widthtype request --padding 3 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 24 &"
+    spawnOnce "trayer --edge top --align right --margin 4 --distance 212 --distancefrom right --widthtype request --padding 3 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 24 &"
     spawnOnce "xfce4-clipman"
     spawnOnce "nm-applet &"
     spawnOnce "blueman-applet &"
@@ -223,7 +223,7 @@ tall     = renamed [Replace "tall"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ ResizableTall 1 (3/100) (1/2) []
 magnify  = renamed [Replace "magnify"]
            $ smartBorders
@@ -232,7 +232,7 @@ magnify  = renamed [Replace "magnify"]
            $ subLayout [] (smartBorders Simplest)
            $ magnifier
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
            $ smartBorders
@@ -249,7 +249,7 @@ grid     = renamed [Replace "grid"]
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
            $ limitWindows 12
-           $ mySpacing 6
+           $ mySpacing 3
            $ mkToggle (single MIRROR)
            $ Grid (16/10)
 spirals  = renamed [Replace "spirals"]
@@ -257,7 +257,7 @@ spirals  = renamed [Replace "spirals"]
            $ windowNavigation
            $ addTabs shrinkText myTabTheme
            $ subLayout [] (smartBorders Simplest)
-           $ mySpacing 6
+           $ mySpacing 2
            $ spiral (6/7)
 threeCol = renamed [Replace "threeCol"]
            $ smartBorders
@@ -519,7 +519,7 @@ main = do
                                -- This works perfect on SINGLE monitor systems. On multi-monitor systems,
                                -- it adds a border around the window if screen does not have focus. So, my solution
                                -- is to use a keybinding to toggle fullscreen noborders instead.  (M-<Space>)
-                               -- <+> fullscreenEventHook
+                             <+> fullscreenEventHook
         , modMask            = myModMask
         , terminal           = myTerminal
         , startupHook        = myStartupHook

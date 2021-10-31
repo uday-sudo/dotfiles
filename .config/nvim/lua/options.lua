@@ -35,8 +35,12 @@ filetype plugin on
 set nocompatible
 
 "So that VimWiki works with markdown files
-let g:vimwiki_list = [{'path': '~/vimwiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/'}]
+
+"This one for markdown
+"let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/',
+"                     \ 'syntax': 'markdown', 'ext': '.md'}]
+
 
 "keymap to toggle markdown preview
 map <C-p> <ESC>:MarkdownPreviewToggle<CR>
@@ -85,14 +89,35 @@ vim.cmd([[
 
 " >> Telescope bindings
 nnoremap <Leader>pp :lua require'telescope.builtin'.builtin{}<CR>
-nnoremap <Leader>m :lua require'telescope.builtin'.oldfiles{}<CR>        " most recentuly used files
-nnoremap ; :lua require'telescope.builtin'.buffers{}<CR>                 " find buffer
-nnoremap <Leader>/ :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>  " find in current buffer
-nnoremap <Leader>' :lua require'telescope.builtin'.marks{}<CR>           " bookmarks
-nnoremap <Leader>f :lua require'telescope.builtin'.git_files{}<CR>       " git files
-nnoremap <Leader>bf :lua require'telescope.builtin'.find_files{}<CR>     " all files
-nnoremap <Leader>rg :lua require'telescope.builtin'.live_grep{}<CR>      " ripgrep like grep through dir
-nnoremap <Leader>cs :lua require'telescope.builtin'.colorscheme{}<CR>    " pick color scheme
+
+"most recentuly used files
+nnoremap <Leader>m :lua require'telescope.builtin'.oldfiles{}<CR>
+
+"find buffer
+nnoremap ; :lua require'telescope.builtin'.buffers{}<CR>
+
+"find in current buffer
+nnoremap <Leader>/ :lua require'telescope.builtin'.current_buffer_fuzzy_find{}<CR>
+
+"bookmarks
+nnoremap <Leader>' :lua require'telescope.builtin'.marks{}<CR>
+
+"git files
+nnoremap <Leader>f :lua require'telescope.builtin'.git_files{}<CR>
+
+"all files
+nnoremap <Leader>bf :lua require'telescope.builtin'.find_files{}<CR>
+
+"ripgrep like grep through dir
+nnoremap <Leader>rg :lua require'telescope.builtin'.live_grep{}<CR>
+
+"pick color scheme
+nnoremap <Leader>cs :lua require'telescope.builtin'.colorscheme{}<CR>
+
+"To type scientific formulas in vim, using the latex formula
+" Go to: https://github.com/jbyuki/nabla.nvim for help
+nnoremap <F5> :lua require("nabla").action()<CR>
+
 
 ]])
 
@@ -105,6 +130,6 @@ nvim-lspconfig:  gd, gD, gr, gi, [d, ]d
 
 telescope: Ctrl + d to delete buffer in <;> buffer menu
 
-
+Ctrl+w then h,j,k,l to move focus
 
 --]]
