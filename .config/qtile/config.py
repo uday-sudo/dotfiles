@@ -200,22 +200,41 @@ screens = [
             [
                 widget.GroupBox(
                     inactive = '#5d7499',
-                    borderwidth = 2,
+                    borderwidth = 3,
                     rounded = False,
                     highlight_color = colors[1],
+                    highlight_method = "line",
                     this_current_screen_border = colors[6],
                     this_screen_border = colors [4],
                     other_current_screen_border = colors[6],
                     other_screen_border = colors[4],
-                    foreground = colors[2],
+                    foreground = "colors[2]",
                     background = "#1b4c7d",
-                    padding = 4,
+                    padding = 3,
                     fontsize = 15),
+                #widget.TextBox(
+                #    foreground = "#4f4f4f",
+                #    text = " |",
+                #    fontsize = 15,
+                #    padding = 1),
+                widget.TextBox(
+                    #background = "#282c34",
+                    foreground = "#a355bc",
+                    text = "ﯺ ",
+                    fontsize = 18),
                 widget.CurrentLayout(
-                    padding = 10),
+                    padding = 5,
+                    foreground = "#a355bc",
+                    fontsize = 14),
                 widget.Prompt(),
+                widget.TextBox(
+                    #background = "#282c34",
+                    foreground = "#00f769",
+                    text = " 﫳",
+                    fontsize = 18),
                 widget.WindowName(
-                    background = '#1b4c7d'),
+                    #background = '#1b4c7d',
+                    foreground = "#00f769"),
                 widget.Chord(
                     chords_colors={
                         'launch': ("#ff0000", "#ffffff"),
@@ -224,9 +243,32 @@ screens = [
                 ),
                 widget.Systray(
                     padding = 5),
+                widget.Net(
+                    #interface = "enp6s0",
+                    format = ' {down}  {up} ',
+                    foreground = "#a509a3",
+                    padding = 5,
+                    fontsize = 14
+                    ),
+                widget.Battery(
+                    foreground = "#1CD1BA",
+                    charge_char = " ",
+                    discharge_char = " ",
+                    empty_char = " ",
+                    full_char = " ",
+                    fontsize = 15,
+                    format = "{char} {percent:2.0%}",
+                    notify_below = 35,
+                    update_interval = 15
+                    ),
                 widget.Clock(
-                    format='   %b %_d %Y  %H:%M ',
+                    fontsize = 14,
+                    format='   %b %_d %Y ',
                     foreground = '#ee9a00'),
+                widget.Clock(
+                    fontsize = 14,
+                    format=' %H:%M ',
+                    foreground = '#2596be'),
             ],
             24,
             background = '#282c34',
