@@ -13,8 +13,6 @@ ___  ___  ________  ________      ___    ___  _____  ________    _____
 
 import os
 import subprocess 
-import re
-import socket
 from libqtile import hook
 from libqtile.command import lazy
 
@@ -129,19 +127,24 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 layouts = [
     #layout.VerticalTile(),
     #layout.Zoomy(),
-    #layout.Columns(),
-    #layout.Stack(num_stacks=2),
-    #layout.Bsp(),
-    #layout.Matrix(),
-    #layout.Tile(),
-    #layout.MonadWide(),
-    layout.MonadTall(
+    layout.Columns(
         border_focus = FocusColor,
         border_normal = UnfocusColor,
         border_width = 3,
         margin = 10,
         single_margin = 10,
         ratio = 0.55),
+    #layout.Stack(num_stacks=2),
+    #layout.Bsp(),
+    layout.Matrix(
+        columns = 3,
+        border_focus = FocusColor,
+        border_normal = UnfocusColor,
+        border_width = 3,
+        margin = 10),
+    #layout.Tile(),
+    #layout.MonadWide(),
+    #layout.MonadTall(),
     layout.Max(),
     layout.RatioTile(
         border_focus = FocusColor,

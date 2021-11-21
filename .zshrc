@@ -1,5 +1,13 @@
-figlet 'POGGERS TERMINAL' | lolcat
 alias updatepls='sudo pacman -Syu && xmonad --recompile'
+alias reborn='reboot'
+alias die='shutdown -P now'
+alias vim='nvim'
+alias vi='nvim'
+alias bettervim='emacs'
+alias btop='bpytop'
+alias l='ls -l'
+alias pls='sudo'
+alias cs='cowsay'
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
