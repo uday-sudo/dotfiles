@@ -2,7 +2,7 @@
 You should know what this means from the title, i don't write any fancy readme's, cause this is just for my personal use.  
 
 For terminal: [Gogh Schemes](https://mayccoll.github.io/Gogh/)<br>
-Apps I use in my workflow: 
+## Apps I use in my workflow: 
       - xfce4
       - Picom
       - nitrogen
