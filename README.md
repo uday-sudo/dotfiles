@@ -15,10 +15,11 @@ For terminal: [Gogh Schemes](https://mayccoll.github.io/Gogh/)<br>
       - powerlevel10k
       - w3m (for in ranger previews)
 
-Zathura dpendencies:zathura-cb — Comic book support
-                    zathura-djvu — DjVu support
-                    zathura-pdf-mupdf — EPUB, PDF and XPS support based on MuPDF
-                    zathura-ps — PostScript support
+#### Zathura dpendencies:
+      * zathura-cb — Comic book support
+      * zathura-djvu — DjVu support
+      * zathura-pdf-mupdf — EPUB, PDF and XPS support based on MuPDF
+      * zathura-ps — PostScript support
 
 Use [Ranger Devicons](https://github.com/alexanderjeurissen/ranger_devicons) in ranger<br>
 
