@@ -1,5 +1,5 @@
 # Dotfiles
-You should know what this means from the title, i don't write any fancy readme's, cause this is just for my personal use.  
+You should know what this means from the title, i don't write any fancy readme's, cause this is just for my personal use. Scroll to the end for my screenshots.  
 
 ## Apps I use in my workflow: 
       - xfce4
@@ -31,3 +31,20 @@ Favourite Icon theme is [Papirus icons](https://github.com/PapirusDevelopmentTea
 Cursor theme is [Volantes Cursor theme](https://github.com/varlesh/volantes-cursors).<br>
 I use [Dracula](https://draculatheme.com/gtk) gtk theme.<br>
 I also like [Doom Emacs](https://github.com/hlissner/doom-emacs).
+
+## Screenshots
+
+##### Qtile Rice
+![Qtile Rice](/screenies/qtile.png)
+
+##### Beautifull Rofi prompt for opening apps
+![Qtile With rofi](/screenies/rofi.png)
+
+##### Ranger the most poggers file manager
+![Ranger Look](/screenies/ranger.png)
+
+##### My Neovim Workflow
+![neovim looks](/screenies/nvim.png)
+
+##### How i study books
+![study](/screenies/study.png)
