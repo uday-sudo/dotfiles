@@ -1,7 +1,6 @@
 # dotfiles
 You should know what this means from the title, i don't write any fancy readme's, cause this is just for my personal use.  
 
-For terminal: [Gogh Schemes](https://mayccoll.github.io/Gogh/)<br>
 ## Apps I use in my workflow: 
       - xfce4
       - Picom
@@ -21,15 +20,16 @@ For terminal: [Gogh Schemes](https://mayccoll.github.io/Gogh/)<br>
       * zathura-pdf-mupdf — EPUB, PDF and XPS support based on MuPDF
       * zathura-ps — PostScript support
 
+Use [Gogh Schemes](https://mayccoll.github.io/Gogh/) in terminal<br>
 Use [Ranger Devicons](https://github.com/alexanderjeurissen/ranger_devicons) in ranger<br>
 
-Fonts needed: Noto Sans Regular
-		Hack mono nerd fonts
-			  Ubuntu regular
-              DejaVuSans Mono nerd fonts
+#### Some More stuff that is required.
+Fonts needed:<br> 
+Noto Sans Regular, Hack mono nerd fonts, Ubuntu regular, DejaVuSans Mono nerd fonts, Hurmit mono nerd font<br>
+Download fonts from [Nerd fonts website](https://www.nerdfonts.com/). <br>
 
-Icon Theme: Papirus Light
+Favourite Icon theme is [Papirus icons](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme).<br>
 
-Maybe Volantes Cursor theme
+Cursor theme is [Volantes Cursor theme](https://github.com/varlesh/volantes-cursors).<br>
 
-GTK theme: Dracula
+I use [Dracula](https://draculatheme.com/gtk) gtk theme.<br>
