@@ -21,13 +21,16 @@ set cmdheight=1
 
 
 "Personal Key mappings
-map <leader>t <ESC>:vs<CR><C-W>w:term<CR>i
+map <leader>tt <ESC>:vs<CR><C-W>w:term<CR>i
 map <leader>tg <ESC>:sp<CR><C-W>w:term<CR>i
 map <leader>ts <ESC>:vs<CR><C-W>w
-map <leader>tq <ESC>:q<CR>
+map <leader>wq <ESC>:wq<CR>
+map <leader>ww <ESC>:w<CR>
+map <leader>q <ESC>:q<CR>
 map <leader>] <ESC>:bn<CR>
 map <leader>[ <ESC>:bp<CR>
 tnoremap <Esc> <C-\><C-n>
+map <leader>t <ESC>:NvimTreeOpen<CR>
 let g:transparent_enabled = v:false
 
 "this for vim todo plugin
@@ -40,10 +43,6 @@ let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/'}]
 "This one for markdown
 "let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/',
 "                     \ 'syntax': 'markdown', 'ext': '.md'}]
-
-
-"keymap to toggle markdown preview
-map <C-p> <ESC>:MarkdownPreviewToggle<CR>
 
 ]])
 

@@ -13,6 +13,18 @@ return require('packer').startup(function()
   use {'MordechaiHadad/nvim-papadark', requires = {'rktjmp/lush.nvim'}}
   use "sainnhe/everforest"
   use "elianiva/gruvy.nvim"
+  use 'EdenEast/nightfox.nvim'
+
+
+    use {
+        'hoob3rt/lualine.nvim',
+        config = function()
+            require('config/lualine')
+        end,
+        requires = {
+            'kyazdani42/nvim-web-devicons', opt = true
+        }
+    }
 
 
     --for notetaking and usual day to day stuff
@@ -26,6 +38,8 @@ return require('packer').startup(function()
             require('config/markdownpreview')
         end
     }
+
+    -- For Latex Formulas in Neovim 
     use "jbyuki/nabla.nvim"
 
     -- LSP components for that fancy IDE stuff in here
@@ -47,17 +61,22 @@ return require('packer').startup(function()
     use {
         'kosayoda/nvim-lightbulb',
         config=function()
-            vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+            require('config/nvim-lightbulb')
         end
     }
 
     --use'ray-x/lsp_signature.nvim'
     use 'williamboman/nvim-lsp-installer'
 
+    --The New League of autocomplete
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
     use {
-        'hrsh7th/nvim-compe',
+        'hrsh7th/nvim-cmp',
         config = function()
-            require('config/nvim-compe')
+            require('config/nvim-cmp')
         end
     }
 
@@ -90,7 +109,7 @@ return require('packer').startup(function()
             require('config/tabout')
         end,
             wants = {'nvim-treesitter'}, -- or require if not used so far
-            --after = {'completion-nvim'} -- if a completion plugin is using tabs load it before
+            after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     }
 
 
@@ -119,17 +138,6 @@ return require('packer').startup(function()
     }
 
     use {
-        'hoob3rt/lualine.nvim',
-        config = function()
-            require('config/lualine')
-        end,
-
-        requires = {
-            'kyazdani42/nvim-web-devicons', opt = true
-        }
-    }
-
-    use {
         "numtostr/FTerm.nvim",             --floating terminal window
         config = function()
             require("config/fterm")
@@ -142,6 +150,15 @@ return require('packer').startup(function()
             require('config/nvim-autopairs')
         end
     }
+
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('config/nvim-tree')
+        end
+    }
+
 --[[
     use {
         'lervag/vimtex',
