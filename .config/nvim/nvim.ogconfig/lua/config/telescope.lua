@@ -27,4 +27,3 @@ require("telescope").setup {
     -- Your extension config goes in here
   }
 }
-

@@ -1,4 +1,3 @@
-
 require'FTerm'.setup({
     dimensions  = {
         height = 0.8,
@@ -6,7 +5,7 @@ require'FTerm'.setup({
         x = 0.5,
         y = 0.5
     },
-    border = 'double'
+    border = 'double' --'single' or 'double'
 })
 
 -- Keybinding

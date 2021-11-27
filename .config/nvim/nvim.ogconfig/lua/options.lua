@@ -21,13 +21,16 @@ set cmdheight=1
 
 
 "Personal Key mappings
+map <leader>tt <ESC>:vs<CR><C-W>w:term<CR>i
+map <leader>tg <ESC>:sp<CR><C-W>w:term<CR>i
+map <leader>ts <ESC>:vs<CR><C-W>w
 map <leader>wq <ESC>:wq<CR>
-map <leader>w <ESC>:w<CR>
+map <leader>ww <ESC>:w<CR>
 map <leader>q <ESC>:q<CR>
 map <leader>] <ESC>:bn<CR>
 map <leader>[ <ESC>:bp<CR>
 tnoremap <Esc> <C-\><C-n>
-map <leader>t <ESC>:NvimTreeToggle<CR>
+map <leader>t <ESC>:NvimTreeOpen<CR>
 let g:transparent_enabled = v:false
 
 "this for vim todo plugin
@@ -42,6 +45,18 @@ let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/'}]
 "                     \ 'syntax': 'markdown', 'ext': '.md'}]
 
 ]])
+
+-- Aerial.nvim Keybinds
+  -- Aerial does not set any mappings by default, so you'll want to set some up
+  -- Toggle the aerial window with <leader>a
+  vim.api.nvim_buf_set_keymap(0, 'n', '<leader>a', '<cmd>AerialToggle!<CR>', {})
+  -- Jump forwards/backwards with '{' and '}'
+  vim.api.nvim_buf_set_keymap(0, 'n', '{', '<cmd>AerialPrev<CR>', {})
+  vim.api.nvim_buf_set_keymap(0, 'n', '}', '<cmd>AerialNext<CR>', {})
+  -- Jump up the tree with '[[' or ']]'
+  vim.api.nvim_buf_set_keymap(0, 'n', '[[', '<cmd>AerialPrevUp<CR>', {})
+  vim.api.nvim_buf_set_keymap(0, 'n', ']]', '<cmd>AerialNextUp<CR>', {})
+
 -- Options
 vim.o.syntax='on'
 vim.o.mouse='a'

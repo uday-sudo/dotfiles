@@ -50,22 +50,6 @@ return require('packer').startup(function()
         end
     }
 
-    --For Indent lines
-    use {
-        'lukas-reineke/indent-blankline.nvim',
-        config = function()
-            require('config/indent-blankline')
-        end
-    }
-
-    --For Bufferline
-    use {
-        'akinsho/bufferline.nvim',
-        config = function()
-            require('config/bufferline')
-        end
-    }
-
     -- Transparency
     use {
         'xiyaowong/nvim-transparent',
@@ -96,7 +80,7 @@ return require('packer').startup(function()
         end
     }
 
-    use 'L3MON4D3/LuaSnip'
+    use 'hrsh7th/vim-vsnip'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -128,6 +112,19 @@ return require('packer').startup(function()
             after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     }
 
+
+    -- for getting code outline (variables and functions)
+--[[
+    use {
+        'stevearc/aerial.nvim',
+        config = function()
+            require('config/aerial')
+        end,
+        requires = {
+            'kyazdani42/nvim-web-devicons', opt = true
+        }
+    }
+--]]
       --register preview and handling
     use 'gennaro-tedesco/nvim-peekup'
 

@@ -1,7 +1,3 @@
---tabline settings empty because the defaults are all i need
-
-
-
 --lualine settings from here
 
 -- themes are here=> https://github.com/hoob3rt/lualine.nvim/blob/master/THEMES.md
@@ -9,9 +5,9 @@
 require'lualine'.setup {
   options = {
     icons_enabled = true,
-    theme = 'onedark',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
+    theme = 'auto',
+    component_separators = {left = '', right = ''},
+    section_separators = {left = '', right = ''},
     disabled_filetypes = {}
   },
   sections = {
@@ -33,3 +29,16 @@ require'lualine'.setup {
   tabline = {},
   extensions = {}
 }
+
+
+--[[
+
+Available themes:
+16color, ayu_dark, ayu_light, ayu_mirage, codedark, dracula, 
+everforest, gruvbox, gruvbox_light, gruvbox_material, horizon, 
+iceberg_dark, iceberg_light, jellybeans, material, modus_vivendi, 
+molokai, nightfly, nord, oceanicnext, onedark, onelight, palenight, 
+papercolor_dark, papercolor_light, powerline, seoul256, 
+solarized_dark, solarized_light, tomorrow, wombat
+
+--]]
