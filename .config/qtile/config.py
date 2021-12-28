@@ -1,6 +1,6 @@
 #The config starts from here
 r'''
-___  ___  ________  ________      ___    ___  _____  ________    _____         
+ ___  ___  ________  ________      ___    ___  _____  ________    _____         
 |\  \|\  \|\   ___ \|\   __  \    |\  \  /  /|/ __  \|\   __  \  / __  \        
 \ \  \\\  \ \  \_|\ \ \  \|\  \   \ \  \/  / /\/_|\  \ \  \|\  \|\/_|\  \       
  \ \  \\\  \ \  \ \\ \ \   __  \   \ \    / /\|/ \ \  \ \  \\\  \|/ \ \  \      
@@ -29,7 +29,7 @@ from libqtile.lazy import lazy
 mod = "mod4"
 terminal = "xfce4-terminal"
 browser = "firefox"
-FocusColor = '#bb7e0d'
+FocusColor = '#ff4343'  #'#bb7e0d'
 UnfocusColor = '#575757'
 
 #Keybinds====================================================================
@@ -215,11 +215,9 @@ screens = [
                     background = "#1b4c7d",
                     padding = 3,
                     fontsize = 15),
-                #widget.TextBox(
-                #    foreground = "#4f4f4f",
-                #    text = " |",
-                #    fontsize = 15,
-                #    padding = 1),
+                widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
                 widget.TextBox(
                     #background = "#282c34",
                     foreground = "#a355bc",
@@ -231,9 +229,12 @@ screens = [
                     fontsize = 14),
                 widget.Prompt(),
                 widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
+                widget.TextBox(
                     #background = "#282c34",
                     foreground = "#00f769",
-                    text = " 﫳",
+                    text = "﫳",
                     fontsize = 18),
                 widget.WindowName(
                     #background = '#1b4c7d',
@@ -244,15 +245,37 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
                 widget.Systray(
                     padding = 5),
-                widget.Net(
-                    #interface = "enp6s0",
-                    format = ' {down}  {up} ',
-                    foreground = "#a509a3",
-                    padding = 5,
-                    fontsize = 14
-                    ),
+                widget.TextBox(
+                    foreground = "#ababab",
+                    text = "|",),
+                widget.TextBox(
+                    foreground = '#ff6229',
+                    text = '盛',
+                    fontsize = 18,
+                    padding = 10,
+                ),
+		        widget.Backlight(
+                    foreground = '#ff6229',
+                    backlight_name = 'backlight',
+                    brightness_file = '/sys/class/backlight/intel_backlight/brightness',
+                    max_brightness_file = '/sys/class/backlight/intel_backlight/max_brightness',
+                    fontsize = 15,
+                ),
+                widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
+                #widget.Net(
+                #    #interface = "enp6s0",
+                #    format = ' {down}  {up} ',
+                #    foreground = "#a509a3",
+                #    padding = 5,
+                #    fontsize = 14
+                #    ),
                 widget.Battery(
                     foreground = "#1CD1BA",
                     charge_char = " ",
@@ -264,10 +287,16 @@ screens = [
                     notify_below = 35,
                     update_interval = 15
                     ),
+                widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
                 widget.Clock(
                     fontsize = 14,
                     format='   %b %_d %Y ',
                     foreground = '#ee9a00'),
+                widget.TextBox(
+                    foreground = "#ABABAB",
+                    text = "|",),
                 widget.Clock(
                     fontsize = 14,
                     format=' %H:%M ',
