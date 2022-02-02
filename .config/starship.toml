@@ -1,0 +1,48 @@
+# Inserts a blank line between shell prompts❯
+add_newline = true
+# ~/.config/starship.toml
+
+# Use custom format
+format = """
+$directory$git_branch$git_status$cmd_duration
+$character"""
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+# scan_timeout = 10
+
+# cmd_duration tells the time taken by the command to execute
+[cmd_duration]
+min_time = 500
+format = "[羽$duration](bold yellow)"
+
+# Replace the "❯" symbol in the prompt with "➜"
+[character]                            # The name of the module we are configuring is "character"
+success_symbol = "[❯](bold green)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+error_symbol = "[❯](bold red)"     # The "success_symbol" segment is being set to "➜" with the color "bold green"
+
+# The current directory
+[directory]
+truncation_length = 6
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+# This module shows the current git branch
+[git_branch]
+symbol = " "
+truncation_length = 4
+truncation_symbol = "..."
+
+# Git status
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+
+# Tells what conda enviroment we are corrently in
+[conda]
+format = "([$symbol$environment](dimmed green)) "
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+

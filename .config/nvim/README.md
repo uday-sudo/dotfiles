@@ -16,6 +16,11 @@ Alt+i                             To toggle Fterm
 F5                                To write Latex Formulas
 ""                                To Open Register Peekup
 
+
+Todo List:
+    Making LSP's work
+
+
 lsp keybinds:
     gD          Goto declaration
     gd          Goto Definition

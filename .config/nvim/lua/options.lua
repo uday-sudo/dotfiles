@@ -40,7 +40,6 @@ let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/'}]
 "This one for markdown
 "let g:vimwiki_list = [{'path': '~/gitjargan/mynotes/',
 "                     \ 'syntax': 'markdown', 'ext': '.md'}]
-
 ]])
 -- Options
 vim.o.syntax='on'

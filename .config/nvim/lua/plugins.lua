@@ -10,10 +10,10 @@ return require('packer').startup(function()
   use 'joshdick/onedark.vim'
   use 'sainnhe/gruvbox-material'
   use "Pocco81/Catppuccino.nvim"
-  use {'MordechaiHadad/nvim-papadark', requires = {'rktjmp/lush.nvim'}}
-  use "sainnhe/everforest"
   use "elianiva/gruvy.nvim"
   use 'EdenEast/nightfox.nvim'
+  use "bluz71/vim-moonfly-colors"
+  use 'vigoux/oak'
 
 
     use {
@@ -29,6 +29,7 @@ return require('packer').startup(function()
 
     --for notetaking and usual day to day stuff
     use "freitass/todo.txt-vim"  --Just a todo list plugin
+    use "norcalli/nvim-colorizer.lua"    --Colorizer
     use "vimwiki/vimwiki"        --VimWiki to make notes
     use {
         'iamcco/markdown-preview.nvim',   --the name says it all
@@ -49,6 +50,10 @@ return require('packer').startup(function()
             require('config/nvim-lspconfig')
         end
     }
+
+    -- For Java specific things
+    --use 'mfussenegger/nvim-jdtls'
+
 
     --For Indent lines
     use {
@@ -106,6 +111,7 @@ return require('packer').startup(function()
         end
     }
 
+--[[
     use {
             'nvim-treesitter/nvim-treesitter-textobjects'
     }
@@ -113,6 +119,7 @@ return require('packer').startup(function()
     use {
             'rrethy/nvim-treesitter-textsubjects'
     }
+--]]
 
     -- LSP bs ends here
 
