@@ -10,7 +10,7 @@
 
 local awful = require("awful")
 local beautiful = require("beautiful")
-local naughty = require("naughty")
+--local naughty = require("naughty")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 
@@ -69,7 +69,7 @@ local function worker(user_args)
 
     local last_battery_check = os.time()
 
-    --[[ Show warning notification ]]
+    --[[ Show warning notification
     local function show_battery_warning()
         naughty.notify {
             icon = warning_msg_icon,
@@ -84,6 +84,7 @@ local function worker(user_args)
             width = 300,
         }
     end
+    --]]
 
     local function update_widget(widget, stdout)
         local charge = 0
@@ -136,9 +137,10 @@ local function worker(user_args)
     watch("acpi", timeout, update_widget, batteryarc_widget)
 
     -- Popup with battery info
+    --[[
     local notification
     local function show_battery_status()
-        awful.spawn.easy_async([[bash -c 'acpi']],
+        awful.spawn.easy_async([ [bash -c 'acpi'] ],
                 function(stdout, _, _, _)
                     naughty.destroy(notification)
                     notification = naughty.notify {
@@ -158,6 +160,7 @@ local function worker(user_args)
             if (button == 1) then show_battery_status() end
         end)
     end
+    --]]
 
     return batteryarc_widget
 

@@ -1,0 +1,51 @@
+#+TITLE Dotfiles
+* DOTFILES
++ You should know what this means from the title, i don't write any fancy readme's, cause this is just for my personal use. Scroll to the end for my screenshots of qtile. I use [[https://www.gnu.org/software/stow/][stoke]] to manage my dotfiles.
+
+** Packages to install:
+      - xfce4
+      - picom
+      - nitrogen
+      - htop
+      - nvim
+      - btop
+      - lxappearance
+      - kmix
+      - oh my zsh
+      - starship prompt
+      - w3m (for in ranger previews)
+      - stoke
+      - emacs
+      - kitty
+      - qtile
+      - awesome
+
+** Zathura dependencies:
+      + zathura-cb — Comic book support
+      + zathura-djvu — DjVu support
+      + zathura-pdf-mupdf — EPUB, PDF and XPS support based on MuPDF
+      + zathura-ps — PostScript support
+
+
+** Some More stuff that is required:
++ Use [[https://mayccoll.github.io/Gogh/][Gogh Schemes]] in terminal
++ Use [[https://github.com/alexanderjeurissen/ranger_devicons][Ranger Devicons]] in ranger
++ Fonts=> Noto Sans Regular, Hack mono nerd fonts, Ubuntu regular, DejaVuSans Mono nerd fonts, Hurmit mono nerd font
++ Download fonts from [[https://www.nerdfonts.com/][Nerd fonts website]].
++ Favourite Icon theme is [[https://github.com/PapirusDevelopmentTeam/papirus-icon-theme][Papirus icons]].
++ Cursor theme is [[https://github.com/varlesh/volantes-cursors][Volantes Cursor theme]].
++ I use [[https://draculatheme.com/gtk][Dracula]] gtk theme.
++ I also like [[https://github.com/hlissner/doom-emacs][Doom Emacs]].
+
+** Screenshots
+
++ Qtile Rice[[/screenies/qtile.png][Qtile Rice]]
+
++ Beautifull Rofi prompt for opening apps[[/screenies/rofi.png][Qtile With rofi]]
+
++ Ranger the most poggers file manager[[/screenies/ranger.png][Ranger Look]]
+
++ My Neovim Workflow[[/screenies/nvim.png][neovim looks]]
+
++ How i study books[[/screenies/study.png][study]]
+** End

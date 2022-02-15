@@ -1,0 +1,11 @@
+# Line numbers on every file
+# bootifull colorschemes
+- Floating terminal
+# <C-[> to go into normal mode
+# Completion engine work for:
+    # Python
+    # C and C++
+    # Java
+- Cofiguring the lualine
+# PDF viewer
+# Tabout(Not really needed)

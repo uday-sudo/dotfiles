@@ -18,13 +18,20 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
- (setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 18 :weight 'Regular)
-       doom-variable-pitch-font (font-spec :family "FantasqueSansMono Nerd Font" :size 13))
+;; (setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 18 :weight 'Regular)
+;;       doom-variable-pitch-font (font-spec :family "FantasqueSansMono Nerd Font" :size 5))
+(setq doom-font (font-spec :family "FantasqueSansMono Nerd Font" :size 18 :weight 'Regular)
+       doom-variable-pitch-font (font-spec :family "FantasqueSansMono Nerd Font" :size 15))
+
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-monokai-classic)
+(setq doom-theme 'doom-one)
+
+;; Tab-jump-out comes to save the day (only while using YASnippets)
+;;(setq yas-fallback-behavior '(apply tab-jump-out 1))
+(tab-jump-out-mode)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -38,6 +45,16 @@
 ;; This is for the completion engine COMPANY
 (setq company-idle-delay 0.2
       company-minimum-prefix-length 3)
+
+;; Mode line customization
+(setq doom-modeline-height 32)
+;; How wide the mode-line bar should be. It's only respected in GUI.
+(setq doom-modeline-bar-width 6)
+;; Whether display the icon for `major-mode'. It respects `doom-modeline-icon'.
+(setq doom-modeline-major-mode-icon t)
+;; Whether display the icon for the buffer state. It respects `doom-modeline-icon'.
+(setq doom-modeline-buffer-state-icon t)
+
 
 ;;(setq lsp-java-server-install-dir (concat doom-etc-dir "/home/uday/.local/share/nvim/lsp_servers/jdtls/")
 ;;      lsp-java-workspace-dir (concat doom-etc-dir "java-workspace"))

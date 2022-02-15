@@ -7,9 +7,10 @@
   \ \  \\\  \ \  \_\\ \ \  \ \  \   \/  /  /      \ \  \ \  \\\  \   \ \  \     
    \ \_______\ \_______\ \__\ \__\__/  / /         \ \__\ \_______\   \ \__\    
     \|_______|\|_______|\|__|\|__|\___/ /           \|__|\|_______|    \|__|    
-                                 \|___|/                                     
+                                 \|___|/
 
-          My awesome config that i do not understand for myself
+    The config i wrote to use awesome wm, it is terrible and not recommended
+    for anyone to use.
 --]]
 
 pcall(require, "luarocks.loader")
@@ -26,7 +27,7 @@ local wibox = require("wibox")                -- Widget and layout library
         
 local beautiful = require("beautiful")        -- This makes things look cool
         
-local naughty = require("naughty")            -- this is what handles the themes
+--local naughty = require("naughty")            -- this is what handles the themes
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")           -- This shows the VIM keybinds in help section
@@ -92,9 +93,6 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 
 --====================================================================================================
-
--- {{{ Wibar
-
 
 
 -- Create a wibox for each screen and add it
@@ -227,34 +225,34 @@ battery = batteryarc_widget({
             {
               wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
               bg = "#1f1f1f",
-              fg = "#607d8b",
+              fg = "#455a64",
               widget = wibox.container.background,
             },
             {
               wibox.widget{ text = " ", align  = "center", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 11", widget = wibox.widget.textbox},
-              bg = "#607d8b",
+              bg = "#455a64",
               widget = wibox.container.background,
             },
             {
               battery,
-              bg = "#607d8b",
+              bg = "#455a64",
               fg = "#fefefe",
               widget = wibox.container.background
             },
             {
               wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#607d8b",
-              fg = "#546e7a",
+              bg = "#455a64",
+              fg = "#37474f",
               widget = wibox.container.background,
             },
             {
               volume_widget,
-              bg = "#546e7a",
+              bg = "#37474f",
               widget = wibox.container.background
             },
             {
               wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#546e7a",
+              bg = "#37474f",
               fg = "#455a64",
               widget = wibox.container.background,
             },
@@ -304,7 +302,7 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey, "Shift" }, "q",function() awful.spawn("/home/uday/.config/rofi/powermenu/powermenu.sh")  end,
               {description="PowerMenu", group="awesome"}),
-    awful.key({ modkey,           }, "d",function() awful.spawn("/home/uday/.config/rofi/launchers/misc/launcher.sh")  end,
+    awful.key({ modkey,           }, "d",function() awful.spawn("/home/uday/.config/rofi/launchers/colorful/launcher.sh")  end,
               {description="Rofi Applauncher", group="awesome"}),
     awful.key({}, "XF86AudioMute",function() awful.spawn("amixer set Master toggle")  end,
               {description="Mute", group="awesome"}),
@@ -585,6 +583,19 @@ awful.rules.rules = {
 --====================================================================================================
 -- {{{ Signals
 -- Signal function to execute when a new client appears.
+screen.connect_signal("arrange", function (s)
+    local max = s.selected_tag.layout.name == "max"
+    local only_one = #s.tiled_clients == 1 -- use tiled_clients so that other floating windows don't affect the count
+    -- but iterate over clients instead of tiled_clients as tiled_clients doesn't include maximized windows
+    for _, c in pairs(s.clients) do
+        if (max or only_one) and not c.floating or c.maximized then
+            c.border_width = 0
+        else
+            c.border_width = beautiful.border_width
+        end
+    end
+end)
+
 client.connect_signal("manage", function (c)
     -- Set the windows at the slave,
 
