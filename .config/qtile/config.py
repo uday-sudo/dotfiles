@@ -27,7 +27,7 @@ from libqtile.lazy import lazy
 #Imports ended====================================================================
 
 mod = "mod4"
-terminal = "xfce4-terminal"
+terminal = "kitty"
 browser = "firefox"
 FocusColor = '#ff4343'  #'#bb7e0d'
 UnfocusColor = '#575757'
@@ -131,7 +131,7 @@ layouts = [
         border_focus = FocusColor,
         border_normal = UnfocusColor,
         border_width = 3,
-        margin = 10,
+        margin = 3,
         single_margin = 10,
         ratio = 0.55),
     #layout.Stack(num_stacks=2),
@@ -181,7 +181,7 @@ layouts = [
 
 #WIDGETS I.E BAR======================================================================================
 
-colors = [["#282c34", "#282c34"], # panel background
+colors1 = [["#282c34", "#282c34"], # panel background
           ["#3d3f4b", "#434758"], # background for current screen tab
           ["#ffffff", "#ffffff"], # font color for group names
           ["#ff5555", "#ff5555"], # border line color for current tab
@@ -190,13 +190,227 @@ colors = [["#282c34", "#282c34"], # panel background
           ["#e1acff", "#e1acff"], # window name
           ["#ecbbfb", "#ecbbfb"]] # backbround for inactive screens
 
+# colors for the bar/widgets/panel
+def init_colors():
+    return [["#282a36", "#282a36"], # color 0 | bg
+            ["#282a36", "#282a36"], # color 1 | bg
+            ["#f8f8f2", "#f8f8f2"], # color 2 | fg
+            ["#ff5555", "#ff5555"], # color 3 | red
+            ["#50fa7b", "#50fa7b"], # color 4 | green
+            ["#f1fa8c", "#f1fa8c"], # color 5 | yellow
+            ["#bd93f9", "#bd93f9"], # color 6 | blue
+            ["#ff79c6", "#ff79c6"], # color 7 | magenta
+            ["#8be9fd", "#8be9fd"], # color 8 | cyan
+            ["#bbbbbb", "#bbbbbb"]] # color 9 | white
+
+def init_separator():
+    return widget.Sep(
+                size_percent = 60,
+                margin = 5,
+                linewidth = 2,
+                background = colors[1],
+                foreground = "#555555")
+
+def nerd_icon(nerdfont_icon, fg_color):
+    return widget.TextBox(
+                font = "Iosevka Nerd Font",
+                fontsize = 15,
+                text = nerdfont_icon,
+                foreground = fg_color,
+                background = colors[1])
+
+def init_edge_spacer():
+    return widget.Spacer(
+                length = 5,
+                background = colors[1])
+
+
+colors = init_colors()
+sep = init_separator()
+space = init_edge_spacer()
+
+
 widget_defaults = dict(
-    font='DejaVuSansMono Nerd Font',
-    fontsize=12,
-    padding=3,
+    font='Source Code Pro Medium',
+    fontsize=15,
+    padding=5,
 )
 extension_defaults = widget_defaults.copy()
 
+
+def init_widgets_list():
+    widgets_list = [
+            # Left Side of the bar
+
+            space,
+            #widget.Image(
+            #    filename = "/usr/share/pixmaps/archlinux-logo.png",
+            #    background = colors[1],
+            #    margin = 3
+            #),
+            widget.Image(
+                filename = "~/.config/qtile/python.png",
+                background = colors[1],
+                margin = 3,
+                mouse_callbacks = {
+                    'Button1': lambda : qtile.cmd_spawn(
+                        'dmenu_run'
+                    ),
+                    'Button3': lambda : qtile.cmd_spawn(
+                        f'{terminal} -e vim {home_dir}/.config/qtile/config.py'
+                    )
+                }
+            ),
+            widget.GroupBox(
+                font = "Iosevka Nerd Font",
+                fontsize = 15,
+                foreground = colors[2],
+                background = colors[1],
+                borderwidth = 4,
+                highlight_method = "text",
+                this_current_screen_border = colors[6],
+                active = colors[4],
+                inactive = colors[2]
+            ),
+            sep,
+            nerd_icon(
+                "  ",
+                colors[6]
+            ),
+            widget.Battery(
+                foreground = colors[2],
+                background = colors[1],
+                format = "{percent:2.0%}"
+            ),
+            nerd_icon(
+                "墳",
+                colors[3]
+            ),
+            widget.Volume(
+                foreground = colors[2],
+                background = colors[1]
+            ),
+            widget.Spacer(
+                length = bar.STRETCH,
+                background = colors[1]
+            ),
+
+            # Center bar
+
+            nerd_icon(
+                "",
+                colors[7]
+            ),
+            widget.CurrentLayout(
+                foreground = colors[2],
+                background = colors[1]
+            ),
+            sep,
+            nerd_icon(
+                "﬙",
+                colors[3]
+            ),
+            widget.CPU(
+                format = "{load_percent}%",
+                foreground = colors[2],
+                background = colors[1],
+                update_interval = 2,
+                mouse_callbacks = {
+                    'Button1': lambda : qtile.cmd_spawn(f"{terminal} -e gtop")
+                }
+            ),
+            nerd_icon(
+                "",
+                colors[4]
+            ),
+            widget.Memory(
+                format = "{MemUsed:.0f}{mm}",
+                foreground = colors[2],
+                background = colors[1],
+                update_interval = 2,
+                mouse_callbacks = {
+                    'Button1': lambda : qtile.cmd_spawn(f"{terminal} -e gtop")
+                }
+            ),
+            nerd_icon(
+                "",
+                colors[6]
+            ),
+            widget.GenPollText(
+                foreground = colors[2],
+                background = colors[1],
+                update_interval = 5,
+                func = lambda: storage.diskspace('FreeSpace'),
+                mouse_callbacks = {
+                    'Button1': lambda : qtile.cmd_spawn(f"{terminal} -e gtop")
+                }
+            ),
+            sep,
+            nerd_icon(
+                "",
+                colors[4]
+            ),
+            widget.GenPollText(
+                foreground = colors[2],
+                background = colors[1],
+                update_interval = 5,
+                func = lambda: subprocess.check_output(f"{home_dir}/.config/qtile/scripts/num-installed-pkgs").decode("utf-8")
+            ),
+
+            # Left Side of the bar
+
+            widget.Spacer(
+                length = bar.STRETCH,
+                background = colors[1]
+            ),
+            nerd_icon(
+                "",
+                colors[4]
+            ),
+            widget.Net(
+                format = "{down} ↓↑ {up}",
+                foreground = colors[2],
+                background = colors[1],
+                update_interval = 2,
+                mouse_callbacks = {
+                    'Button1': lambda : qtile.cmd_spawn("def-nmdmenu")
+                }
+            ),
+            sep,
+            nerd_icon(
+                "",
+                colors[7]
+            ),
+            widget.Clock(
+                format = '%b %d-%Y',
+                foreground = colors[2],
+                background = colors[1]
+            ),
+            nerd_icon(
+                "",
+                colors[8]
+            ),
+            widget.Clock(
+                format = '%H:%M %p',
+                foreground = colors[2],
+                background = colors[1]
+            ),
+            widget.Systray(
+                background = colors[1]
+            ),
+            space
+        ]
+    return widgets_list
+
+
+# screens/bar
+def init_screens():
+    return [Screen(top=bar.Bar(widgets=init_widgets_list(), size=30, opacity=0.9, margin=[0,0,0,0]))]
+
+screens = init_screens()
+
+
+'''
 screens = [
     Screen(
         top=bar.Bar(
@@ -205,19 +419,16 @@ screens = [
                     inactive = '#5d7499',
                     borderwidth = 3,
                     rounded = False,
-                    highlight_color = colors[1],
+                    highlight_color = colors1[1],
                     highlight_method = "line",
-                    this_current_screen_border = colors[6],
-                    this_screen_border = colors [4],
-                    other_current_screen_border = colors[6],
-                    other_screen_border = colors[4],
-                    foreground = "colors[2]",
+                    this_current_screen_border = colors1[6],
+                    this_screen_border = colors1[4],
+                    other_current_screen_border = colors1[6],
+                    other_screen_border = colors1[4],
+                    foreground = colors1[2],
                     background = "#1b4c7d",
                     padding = 3,
                     fontsize = 15),
-                widget.TextBox(
-                    foreground = "#ABABAB",
-                    text = "|",),
                 widget.TextBox(
                     #background = "#282c34",
                     foreground = "#a355bc",
@@ -308,7 +519,7 @@ screens = [
         ),
     ),
 ]
-
+'''
 #SOME EXTRA RULES========================================================================================
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
