@@ -112,30 +112,6 @@ local taglist_buttons = gears.table.join(
                     awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
                     awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
                 )
-
-local tasklist_buttons = gears.table.join(
-                     awful.button({ }, 1, function (c)
-                                              if c == client.focus then
-                                                  c.minimized = true
-                                              else
-                                                  c:emit_signal(
-                                                      "request::activate",
-                                                      "tasklist",
-                                                      {raise = true}
-                                                  )
-                                              end
-                                          end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
-
-
 --====================================================================================================
 awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
@@ -156,22 +132,30 @@ month_calendar:attach( mytextclock, "tr" )
 
 --Systray here
 mysystray = wibox.widget {
-      base_size = 20,
-      opacity = 0,
+      base_size = 25,
+      opacity = 1,
       widget = wibox.widget.systray(),
 }
+
+--My Separator
+separate =  {
+            wibox.widget{ text = "  ", align  = "left", valign = "center", font = "SauceCodePro Nerd Font Mono Regular 10", widget = wibox.widget.textbox},
+            --bg = "#263238",
+            --fg = "#40424D",
+            widget = wibox.container.background,
+            }
 
 --my battery widget
 battery = batteryarc_widget({
             show_current_level = true,
             arc_thickness = 0,
             size = 28,
-            font = "FantasqueSansMono Nerd Font Mono Regular 12",
+            font = "SauceCodePro Nerd Font Mono Bold 12",
 
           })
 
 -- Separator for right side
---rs = wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox}
+--rs = wibox.widget{ text = " ", align  = "right", valign = "center", font = "SauceCodePro Nerd Font Mono Regular 20", widget = wibox.widget.textbox}
 
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -189,13 +173,6 @@ battery = batteryarc_widget({
         buttons = taglist_buttons
     }
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
-
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s, height = 25 })
 
@@ -205,79 +182,38 @@ battery = batteryarc_widget({
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
-            {
-              wibox.widget{ text = " ", align  = "left", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#263238",
-              fg = "#32444d",
-              widget = wibox.container.background,
-            },
+            separate,
             s.mytaglist,
-            {
-              wibox.widget{ text = " ", align  = "left", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#1f1f1f",
-              fg = "#263238",
-              widget = wibox.container.background,
-            },
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            separate,
             {
-              wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#1f1f1f",
-              fg = "#455a64",
-              widget = wibox.container.background,
-            },
-            {
-              wibox.widget{ text = " ", align  = "center", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 11", widget = wibox.widget.textbox},
-              bg = "#455a64",
+              wibox.widget{ text = " ", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
+              fg = "#b56732",
               widget = wibox.container.background,
             },
             {
               battery,
-              bg = "#455a64",
-              fg = "#fefefe",
+              fg = "#b56732",
               widget = wibox.container.background
             },
-            {
-              wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#455a64",
-              fg = "#37474f",
-              widget = wibox.container.background,
-            },
+            separate,
             {
               volume_widget,
-              bg = "#37474f",
+              fg = "#a683ba",
               widget = wibox.container.background
             },
-            {
-              wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#37474f",
-              fg = "#455a64",
-              widget = wibox.container.background,
-            },
-            {
-              mysystray,
-              bg = "#455a64",
-              widget = wibox.container.background
-            },
-            {
-              wibox.widget{ text = " ", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#455a64",
-              fg = "#37474f",
-              widget = wibox.container.background,
-            },
+            separate,
             {
               mytextclock,
-              bg     = '#37474f',
+              fg     = '#53d1ec',
               widget = wibox.container.background
             },
-            {
-              wibox.widget{ text = "", align  = "right", valign = "center", font = "FantasqueSansMono Nerd Font Mono Regular 20", widget = wibox.widget.textbox},
-              bg = "#37474f",
-              fg = "#263238",
-              widget = wibox.container.background,
-            },
+            separate,
+            mysystray,
+            separate,
             {
               s.mylayoutbox,
               bg = "#263238",
@@ -573,13 +509,7 @@ awful.rules.rules = {
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
     },
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
 }
--- }}}
-
 --====================================================================================================
 -- {{{ Signals
 -- Signal function to execute when a new client appears.

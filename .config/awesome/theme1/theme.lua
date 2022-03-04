@@ -11,15 +11,15 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                    = {}
 theme.dir                      = os.getenv("HOME") .. "/.config/awesome/theme1"
-theme.font                     = "3270Medium Nerd Font Mono Bold 13"--"Hack Nerd Font Mono 10"
+theme.font                     = "SauceCodePro Nerd Font Mono Bold 13"--"Hack Nerd Font Mono 10"
 theme.fg_normal                = "#fefefe"
 theme.fg_focus                 = "#fefefe"
-theme.bg_normal                = "#1f1f1f"
+theme.bg_normal                = "#2a2a37"--"#1f1f1f"
 theme.bg_focus                 = "#1f1f1f"
 theme.fg_urgent                = "#CC9393"
 theme.bg_urgent                = "#2A1F1E"
 
-theme.bg_systray               = "#455a64"
+theme.bg_systray               = "#2a2a37"
 
 theme.tasklist_fg_focus        = "#fefefe"
 theme.tasklist_bg_focus        = "#1f1f1f"
@@ -36,13 +36,13 @@ theme.gap_single_client = false
 
 theme.taglist_squares_sel      = theme.dir .. "/icons/square_sel.png"
 theme.taglist_squares_unsel    = theme.dir .. "/icons/square_unsel.png"
-theme.taglist_font             = "Hack Nerd Font Mono Regular 15"
-theme.taglist_fg_focus         = "#fefefe"
-theme.taglist_bg_focus         = "#344147"
-theme.taglist_fg_empty         = "#fefefe"
-theme.taglist_bg_empty         = "#263238"
-theme.taglist_fg_occupied      = "#fefefe"
-theme.taglist_bg_occupied      = "#263238"
+theme.taglist_font             = "SauceCodePro Nerd Font Mono Bold 18"
+theme.taglist_fg_focus         = "#a284b3"
+theme.taglist_bg_focus         = "#2a2a37"
+theme.taglist_fg_empty         = "#67a1c6"
+theme.taglist_bg_empty         = "#2a2a37"
+theme.taglist_fg_occupied      = "#67a1c6"
+theme.taglist_bg_occupied      = "#2a2a37"
 --theme.taglist_shape            = gears.shape.square
 
 theme.layout_tile              = theme.dir .. "/icons/tile.png"
