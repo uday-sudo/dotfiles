@@ -128,7 +128,7 @@ mytextclock1 = wibox.widget {
       widget = wibox.widget.textclock,
 }
 mytextclock2 = wibox.widget {
-      format = "%H:%M ",
+      format = "%H:%M",
       widget = wibox.widget.textclock,
 }
 
@@ -145,11 +145,16 @@ mysystray = wibox.widget {
 
 --My Separator
 separate =  {
-            wibox.widget{ text = "  ", align  = "left", valign = "center", font = "SauceCodePro Nerd Font Mono Regular 10", widget = wibox.widget.textbox},
-            --bg = "#263238",
-            --fg = "#40424D",
-            widget = wibox.container.background,
+                {
+                wibox.widget{ text = " | ", align  = "center", valign = "top", font = "SauceCodePro Nerd Font Mono Regular 10", widget = wibox.widget.textbox},
+                --bg = "#263238",
+                --fg = "#40424D",
+                widget = wibox.container.background,
+                },
+                top = 2,
+                widget = wibox.container.margin,
             }
+
 
 --my battery widget
 battery = batteryarc_widget({
