@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="16"
    viewBox="0 0 16 16"
    height="16"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r"
-   sodipodi:docname="audio-volume-medium-symbolic.svg">
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="audio-volume-medium-symbolic.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata30">
     <rdf:RDF>
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -35,20 +35,21 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1215"
-     inkscape:window-height="776"
+     inkscape:window-width="1920"
+     inkscape:window-height="1055"
      id="namedview28"
      showgrid="true"
      inkscape:zoom="38.125"
-     inkscape:cx="8"
-     inkscape:cy="8"
-     inkscape:window-x="65"
-     inkscape:window-y="24"
+     inkscape:cx="2.8196721"
+     inkscape:cy="7.9737705"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      showguides="true"
      inkscape:snap-intersection-paths="false"
-     inkscape:object-paths="false">
+     inkscape:object-paths="false"
+     inkscape:pagecheckerboard="0">
     <inkscape:grid
        type="xygrid"
        id="grid4158" />
@@ -85,4 +86,16 @@
      id="path4569"
      inkscape:connector-curvature="0"
      sodipodi:nodetypes="ccscccc" />
+  <path
+     style="fill:#a683ba;stroke:none;stroke-width:0.0262295;fill-opacity:1"
+     d="m 4.4864687,12.460241 -1.4807446,-1.48092 -1.0110587,-0.0077 -1.01105884,-0.0077 -0.15206424,-0.07462 c -0.37272181,-0.182903 -0.61835063,-0.59796 -0.7397226,-1.2499567 -0.11715805,-0.6293598 -0.11715805,-2.6755583 0,-3.3049181 C 0.21234096,5.6869999 0.43854801,5.3038956 0.80763969,5.1221133 l 0.17471215,-0.086048 1.01046346,-0.00738 1.0104634,-0.00738 1.4885246,-1.487616 1.4885246,-1.487616 v 2.478862 2.4788612 L 6.4786951,7.5016459 6.977062,7.9994951 6.4788299,8.4982193 5.9805975,8.9969435 l -0.00669,2.4721095 -0.00669,2.472109 z"
+     id="path2401" />
+  <path
+     style="fill:#a683ba;fill-opacity:1;stroke-width:0.0262295"
+     d="M 7.9259105,10.286569 7.2357987,9.5960881 7.3932376,9.4351898 C 7.8080372,9.0112761 8.0003986,8.5525768 7.9996123,7.989247 7.9988343,7.4318581 7.8148475,6.9918139 7.4084108,6.5752609 L 7.2384238,6.401043 7.9336162,5.7058506 8.6288087,5.0106582 8.8020458,5.1807389 c 0.6772435,0.664904 1.0737525,1.5137686 1.1689955,2.5026387 0.081113,0.8421605 -0.1659943,1.7908962 -0.6580623,2.5265454 -0.1400815,0.209424 -0.6342732,0.767126 -0.6797669,0.767126 -0.00945,0 -0.3277402,-0.310716 -0.7073016,-0.69048 z"
+     id="path2477" />
+  <path
+     style="fill:#a683ba;fill-opacity:1;stroke-width:0.0262295"
+     d="m 10.310761,12.174182 -0.6925186,-0.694013 0.176963,-0.205658 c 0.2505496,-0.291178 0.5381786,-0.732252 0.7071136,-1.084347 0.675784,-1.4084719 0.675784,-2.9718561 0,-4.3803279 C 10.333384,5.4577407 10.045755,5.0166669 9.7952054,4.7254893 L 9.6182424,4.5198311 10.310761,3.8256196 11.003279,3.1314081 11.143238,3.2837368 C 12.334178,4.579926 12.983607,6.2442007 12.983607,8 c 0,1.7712824 -0.64779,3.418849 -1.864575,4.742294 l -0.115753,0.1259 z"
+     id="path2516" />
 </svg>

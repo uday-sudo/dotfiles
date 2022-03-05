@@ -17,6 +17,8 @@ pcall(require, "luarocks.loader")
 local lain = require("lain")                  -- added by me
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
+local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
 
 
 local gears = require("gears")                -- Standard awesome library
@@ -121,13 +123,17 @@ awful.screen.connect_for_each_screen(function(s)
 
 
 -- Create a textclock widget [format = "   %b %_d %Y  %H:%M ",]
-mytextclock = wibox.widget {
-      format = "  %b %d %Y -  %H:%M ",
+mytextclock1 = wibox.widget {
+      format = "%b %d %Y - ",
+      widget = wibox.widget.textclock,
+}
+mytextclock2 = wibox.widget {
+      format = "%H:%M ",
       widget = wibox.widget.textclock,
 }
 
 month_calendar = awful.widget.calendar_popup.month()
-month_calendar:attach( mytextclock, "tr" )
+month_calendar:attach( mytextclock2, "tr" )
 --month_calendar:toggle() to make the popup appear
 
 --Systray here
@@ -188,15 +194,37 @@ battery = batteryarc_widget({
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+            separate,--5c88ac
+            {
+              brightness_widget{
+                type = 'icon_and_text',
+                program = 'brightnessctl',
+                step = 2,
+                font = "SauceCodePro Nerd Font Mono Bold 13"
+                },
+              fg = "#bb6870",
+              widget = wibox.container.background
+            },
             separate,
             {
-              wibox.widget{ text = " ", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
-              fg = "#b56732",
+              wibox.widget{ text = "", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
+              fg = "#d1ab6f",
+              widget = wibox.container.background,
+            },
+            {
+              net_speed_widget,
+              fg = "#d1ab6f",
+              widget = wibox.container.background
+            },
+            separate,
+            {
+              wibox.widget{ text = " ", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
+              fg = "#9fc463",
               widget = wibox.container.background,
             },
             {
               battery,
-              fg = "#b56732",
+              fg = "#9fc463",
               widget = wibox.container.background
             },
             separate,
@@ -207,7 +235,22 @@ battery = batteryarc_widget({
             },
             separate,
             {
-              mytextclock,
+              wibox.widget{ text = " ", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
+              fg = "#53d1ec",
+              widget = wibox.container.background,
+            },
+            {
+              mytextclock1,
+              fg     = '#53d1ec',
+              widget = wibox.container.background
+            },
+            {
+              wibox.widget{ text = " ", align  = "center", valign = "center", font = "Iosevka Regular 13", widget = wibox.widget.textbox},
+              fg = "#53d1ec",
+              widget = wibox.container.background,
+            },
+            {
+              mytextclock2,
               fg     = '#53d1ec',
               widget = wibox.container.background
             },
