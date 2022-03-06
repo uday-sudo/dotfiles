@@ -15,7 +15,7 @@
 # full_circle     full_square     full_rounded     full_alt
 # row_circle      row_square      row_rounded      row_alt
 
-theme="column_square"
+theme="drop_alt"
 dir="$HOME/.config/rofi/powermenu"
 
 # random colors

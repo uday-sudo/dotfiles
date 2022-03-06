@@ -151,7 +151,7 @@ separate =  {
                 --fg = "#40424D",
                 widget = wibox.container.background,
                 },
-                top = 2,
+                top = 1,
                 widget = wibox.container.margin,
             }
 
@@ -288,6 +288,8 @@ globalkeys = gears.table.join(
               {description="PowerMenu", group="awesome"}),
     awful.key({ modkey,           }, "d",function() awful.spawn("/home/uday/.config/rofi/launchers/colorful/launcher.sh")  end,
               {description="Rofi Applauncher", group="awesome"}),
+    awful.key({ modkey,           }, "a",function() awful.spawn("/home/uday/.config/rofi/launchers/text2/launcher.sh")  end,
+              {description="Rofi Windowcd", group="awesome"}),
     awful.key({}, "XF86AudioMute",function() awful.spawn("amixer set Master toggle")  end,
               {description="Mute", group="awesome"}),
     awful.key({}, "XF86AudioRaiseVolume",function() awful.spawn("amixer set Master 5%+ unmute")  end,
