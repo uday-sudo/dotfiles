@@ -110,9 +110,18 @@ nnoremap <Leader>cs :lua require'telescope.builtin'.colorscheme{}<CR>
 " Go to: https://github.com/jbyuki/nabla.nvim for help
 nnoremap <F5> :lua require("nabla").action()<CR>
 
-
+let g:dashboard_default_executive ='telescope'
+let g:indentLine_fileTypeExclude = ['dashboard']
+let g:dashboard_custom_header = [
+\ ' ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗',
+\ ' ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║',
+\ ' ██╔██╗ ██║ █████╗  ██║   ██║ ██║   ██║ ██║ ██╔████╔██║',
+\ ' ██║╚██╗██║ ██╔══╝  ██║   ██║ ╚██╗ ██╔╝ ██║ ██║╚██╔╝██║',
+\ ' ██║ ╚████║ ███████╗╚██████╔╝  ╚████╔╝  ██║ ██║ ╚═╝ ██║',
+\ ' ╚═╝  ╚═══╝ ╚══════╝ ╚═════╝    ╚═══╝   ╚═╝ ╚═╝     ╚═╝',
+\]
 ]])
-
+--vim.notify = require("notify")
 --[[
 Extra keybinds:
 

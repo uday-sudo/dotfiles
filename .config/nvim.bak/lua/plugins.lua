@@ -10,10 +10,10 @@ return require('packer').startup(function()
   use 'joshdick/onedark.vim'
   use 'sainnhe/gruvbox-material'
   use "Pocco81/Catppuccino.nvim"
-  use {'MordechaiHadad/nvim-papadark', requires = {'rktjmp/lush.nvim'}}
-  use "sainnhe/everforest"
   use "elianiva/gruvy.nvim"
   use 'EdenEast/nightfox.nvim'
+  use "bluz71/vim-moonfly-colors"
+  use 'vigoux/oak'
 
 
     use {
@@ -29,6 +29,7 @@ return require('packer').startup(function()
 
     --for notetaking and usual day to day stuff
     use "freitass/todo.txt-vim"  --Just a todo list plugin
+    use "norcalli/nvim-colorizer.lua"    --Colorizer
     use "vimwiki/vimwiki"        --VimWiki to make notes
     use {
         'iamcco/markdown-preview.nvim',   --the name says it all
@@ -47,6 +48,26 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         config = function()
             require('config/nvim-lspconfig')
+        end
+    }
+
+    -- For Java specific things
+    --use 'mfussenegger/nvim-jdtls'
+
+
+    --For Indent lines
+    use {
+        'lukas-reineke/indent-blankline.nvim',
+        config = function()
+            require('config/indent-blankline')
+        end
+    }
+
+    --For Bufferline
+    use {
+        'akinsho/bufferline.nvim',
+        config = function()
+            require('config/bufferline')
         end
     }
 
@@ -80,7 +101,7 @@ return require('packer').startup(function()
         end
     }
 
-    use 'hrsh7th/vim-vsnip'
+    use 'L3MON4D3/LuaSnip'
 
     use {
         'nvim-treesitter/nvim-treesitter',
@@ -90,6 +111,7 @@ return require('packer').startup(function()
         end
     }
 
+--[[
     use {
             'nvim-treesitter/nvim-treesitter-textobjects'
     }
@@ -97,6 +119,7 @@ return require('packer').startup(function()
     use {
             'rrethy/nvim-treesitter-textsubjects'
     }
+--]]
 
     -- LSP bs ends here
 
@@ -112,19 +135,6 @@ return require('packer').startup(function()
             after = {'nvim-cmp'} -- if a completion plugin is using tabs load it before
     }
 
-
-    -- for getting code outline (variables and functions)
---[[
-    use {
-        'stevearc/aerial.nvim',
-        config = function()
-            require('config/aerial')
-        end,
-        requires = {
-            'kyazdani42/nvim-web-devicons', opt = true
-        }
-    }
---]]
       --register preview and handling
     use 'gennaro-tedesco/nvim-peekup'
 

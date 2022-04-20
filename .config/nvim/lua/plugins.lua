@@ -1,20 +1,35 @@
 return require('packer').startup(function()
 
       -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
+
+    -- Collaborative editing
+    use 'jbyuki/instant.nvim'
 
       --treesitter supported colorschemes(POG)
-  use 'rafamadriz/neon'               --this is like onedark and is very poggers
-  use 'marko-cerovac/material.nvim'
-  use 'sainnhe/sonokai'               --has eyepleasing schemes
-  use 'joshdick/onedark.vim'
-  use 'sainnhe/gruvbox-material'
-  use "Pocco81/Catppuccino.nvim"
-  use "elianiva/gruvy.nvim"
-  use 'EdenEast/nightfox.nvim'
-  use "bluz71/vim-moonfly-colors"
-  use 'vigoux/oak'
+    use 'rafamadriz/neon'               --this is like onedark and is very poggers
+    use 'marko-cerovac/material.nvim'
+    use 'sainnhe/sonokai'               --has eyepleasing schemes
+    use 'joshdick/onedark.vim'
+    use 'sainnhe/gruvbox-material'
+    use "Pocco81/Catppuccino.nvim"
+    use "elianiva/gruvy.nvim"
+    use 'EdenEast/nightfox.nvim'
+    use "bluz71/vim-moonfly-colors"
+    use 'vigoux/oak'
 
+    -- Dashboard
+    use 'glepnir/dashboard-nvim'
+
+    -- Session Management
+    use({
+      "folke/persistence.nvim",
+      event = "BufReadPre", -- this will only start session saving when an actual file was opened
+      module = "persistence",
+      config = function()
+        require("persistence").setup()
+      end,
+    })
 
     use {
         'hoob3rt/lualine.nvim',
@@ -26,19 +41,25 @@ return require('packer').startup(function()
         }
     }
 
-
-    --for notetaking and usual day to day stuff
-    use "freitass/todo.txt-vim"  --Just a todo list plugin
-    use "norcalli/nvim-colorizer.lua"    --Colorizer
-    use "vimwiki/vimwiki"        --VimWiki to make notes
+    -- GCC and GBC comment feature
     use {
-        'iamcco/markdown-preview.nvim',   --the name says it all
-            run = function() vim.fn['mkdp#util#install']() end,
-            ft = {'markdown'},
+        'numToStr/Comment.nvim',
+        commit = "0aaea32f27315e2a99ba4c12ab9def5cbb4842e4",
         config = function()
-            require('config/markdownpreview')
+            require('config/comment')
         end
     }
+
+    -- Toggle Term
+    use {
+        'akinsho/toggleterm.nvim',
+        config = function()
+            require('config/toggleterm')
+        end
+    }
+
+    --for notetaking and usual day to day stuff
+    use "norcalli/nvim-colorizer.lua"    --Colorizer
 
     -- For Latex Formulas in Neovim 
     use "jbyuki/nabla.nvim"
@@ -88,12 +109,23 @@ return require('packer').startup(function()
 
     --use'ray-x/lsp_signature.nvim'
     use 'williamboman/nvim-lsp-installer'
+    --use 'rcarriga/nvim-notify'
 
+    -- Snippets Jam
+    use 'L3MON4D3/LuaSnip'
+    use {
+        'rafamadriz/friendly-snippets',
+        -- after="L3MON4D3/LuaSnip",
+        config = function()
+            require('config/friendly')
+        end
+    }
     --The New League of autocomplete
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use 'saadparwaiz1/cmp_luasnip'
     use {
         'hrsh7th/nvim-cmp',
         config = function()
@@ -101,8 +133,7 @@ return require('packer').startup(function()
         end
     }
 
-    use 'L3MON4D3/LuaSnip'
-
+    --Treesitter is Treesitter
     use {
         'nvim-treesitter/nvim-treesitter',
         run = ':TSUpdate',
@@ -168,13 +199,4 @@ return require('packer').startup(function()
             require('config/nvim-tree')
         end
     }
-
---[[
-    use {
-        'lervag/vimtex',
-        config = function()
-            require('config/vimtex')
-        end
-    }
---]]
 end)

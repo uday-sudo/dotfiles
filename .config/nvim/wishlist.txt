@@ -1,0 +1,21 @@
+Plugins:
+ • FixCursorHold.nvim
+ • alpha-nvim
+ • friendly-snippets
+ • gitsigns.nvim
+ • lua-dev.nvim (not loaded)
+ • nlsp-settings.nvim
+ • null-ls.nvim
+ • nvim-notify
+ • nvim-tree.lua
+ • nvim-treesitter
+ • nvim-ts-context-commentstring
+ • plenary.nvim
+ • popup.nvim
+ • project.nvim
+ • schemastore.nvim
+ • structlog.nvim
+ • telescope-fzf-native.nvim
+ • telescope.nvim
+ • toggleterm.nvim
+ • which-key.nvim

@@ -8,13 +8,11 @@ vim.opt.completeopt = "menuone,noselect"
 
 -- nvim-cmp setup
 cmp.setup {
-  snippet = {
-    -- REQUIRED - you must specify a snippet engine
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body)
-         require('luasnip').lsp_expand(args.body)
-    end,
-  },
+   snippet = {
+      expand = function(args)
+         require("luasnip").lsp_expand(args.body)
+      end,
+   },
    formatting = {
       format = function(entry, vim_item)
          -- load lspkind icons
@@ -66,7 +64,6 @@ cmp.setup {
    sources = {
       { name = "nvim_lsp" },
       { name = "luasnip" },
-      { name = "LuaSnip" },
       { name = "buffer" },
       { name = "nvim_lua" },
       { name = "path" },
@@ -108,7 +105,6 @@ cmp.setup({
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
       vim.fn["vsnip#anonymous"](args.body)
-         require('luasnip').lsp_expand(args.body)
     end,
   },
   formatting = {
