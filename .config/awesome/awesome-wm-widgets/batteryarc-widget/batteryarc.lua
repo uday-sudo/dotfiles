@@ -83,8 +83,7 @@ local function worker(user_args)
             fg = "#EEE9EF",
             width = 300,
         }
-    end
-    --]]
+    end --]]
 
     local function update_widget(widget, stdout)
         local charge = 0

@@ -9,8 +9,10 @@
 ;; To install SOME-PACKAGE from MELPA, ELPA or emacsmirror:
 ;(package! some-package)
 (package! evil-tutor)
-(package! tab-jump-out)
+;;(package! tab-jump-out)
 (package! ox-twbs)
+(package! beacon)
+(package! org-bullets)
 ;;(package! org-publish)
 
 ;; To install a package directly from a remote git repo, you must specify a

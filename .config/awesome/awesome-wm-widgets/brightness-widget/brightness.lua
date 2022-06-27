@@ -12,7 +12,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local watch = require("awful.widget.watch")
 local spawn = require("awful.spawn")
-local naughty = require("naughty")
+--local naughty = require("naughty")
 
 local ICON_DIR = os.getenv("HOME") .. '/.config/awesome/awesome-wm-widgets/brightness-widget/'
 local get_brightness_cmd
@@ -22,13 +22,14 @@ local dec_brightness_cmd
 
 local brightness_widget = {}
 
+--[[
 local function show_warning(message)
     naughty.notify{
         preset = naughty.config.presets.critical,
         title = 'Brightness Widget',
         text = message}
 end
-
+--]]
 local function worker(user_args)
 
     local args = user_args or {}
@@ -58,9 +59,9 @@ local function worker(user_args)
         set_brightness_cmd = 'brightnessctl set %d%%' -- <level>
         inc_brightness_cmd = 'brightnessctl set +' .. step .. '%'
         dec_brightness_cmd = 'brightnessctl set ' .. step .. '-%'
-    else
-        show_warning(program .. " command is not supported by the widget")
-        return
+    --else
+    --    show_warning(program .. " command is not supported by the widget")
+    --    return
     end
 
     if type == 'icon_and_text' then
@@ -107,9 +108,9 @@ local function worker(user_args)
                 self:set_value(level)
             end
         }
-    else
-        show_warning(type .. " type is not supported by the widget")
-        return
+    --else
+    --    show_warning(type .. " type is not supported by the widget")
+    --    return
 
     end
 

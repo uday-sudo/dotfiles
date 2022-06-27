@@ -20,9 +20,16 @@
 ;; font string. You generally only need these two:
 ;; (setq doom-font (font-spec :family "mononoki Nerd Font Mono" :size 18 :weight 'Regular)
 ;;       doom-variable-pitch-font (font-spec :family "FantasqueSansMono Nerd Font" :size 5))
-(setq doom-font (font-spec :family "FantasqueSansMono Nerd Font" :size 18 :weight 'Regular)
+(setq doom-font (font-spec :family "FantasqueSansMono Nerd Font" :size 22 :weight 'Regular)
        doom-variable-pitch-font (font-spec :family "FantasqueSansMono Nerd Font" :size 15))
 
+;; For org mode
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; For the beacon the curson finder
+(beacon-mode 1)
+(setq beacon-push-mark 35)
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -31,7 +38,17 @@
 
 ;; Tab-jump-out comes to save the day (only while using YASnippets)
 ;;(setq yas-fallback-behavior '(apply tab-jump-out 1))
-(tab-jump-out-mode)
+;;(tab-jump-out-mode)
+;;(setq yas-fallback-behavior '(apply tab-jump-out 1))
+(defun eide-smart-tab-jump-out-or-indent (&optional arg)
+  "Smart tab behavior. Jump out quote or brackets, or indent."
+  (interactive "P")
+  (if (-contains? (list "\"" "'" ")" "}" ";" "|" ">" "]" ) (make-string 1 (char-after)))
+      (forward-char 1)
+    (indent-for-tab-command arg)))
+;; Set Keybind
+(global-set-key [remap indent-for-tab-command]
+                'eide-smart-tab-jump-out-or-indent)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!

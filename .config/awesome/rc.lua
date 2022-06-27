@@ -14,11 +14,11 @@
 --]]
 
 pcall(require, "luarocks.loader")
-local lain = require("lain")                  -- added by me
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 
 
 local gears = require("gears")                -- Standard awesome library
@@ -132,9 +132,27 @@ mytextclock2 = wibox.widget {
       widget = wibox.widget.textclock,
 }
 
-month_calendar = awful.widget.calendar_popup.month()
-month_calendar:attach( mytextclock2, "tr" )
+--month_calendar = awful.widget.calendar_popup.month()
+--month_calendar:attach( mytextclock2, "tr" )
 --month_calendar:toggle() to make the popup appear
+-- Create a textclock widget
+local cw = calendar_widget()
+-- or customized
+local cw = calendar_widget({
+    theme = 'nord',
+    placement = 'top_right',
+    start_sunday = false,
+    radius = 12,
+-- with customized next/previous (see table above)
+    previous_month_button = 1,
+    next_month_button = 3,
+})
+mytextclock1:connect_signal("button::press",
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
+
 
 --Systray here
 mysystray = wibox.widget {
@@ -205,6 +223,7 @@ battery = batteryarc_widget({
                 type = 'icon_and_text',
                 program = 'brightnessctl',
                 step = 2,
+                base = 36,
                 font = "SauceCodePro Nerd Font Mono Bold 13"
                 },
               fg = "#bb6870",

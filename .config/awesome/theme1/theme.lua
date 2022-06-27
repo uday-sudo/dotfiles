@@ -31,7 +31,7 @@ theme.awesome_icon             = theme.dir .."/icons/awesome.png"
 theme.border_width = 3
 theme.border_normal = '#575757'
 theme.border_focus = '#FFA500'
-theme.useless_gap = 1
+theme.useless_gap = 2
 theme.gap_single_client = false
 
 theme.taglist_squares_sel      = theme.dir .. "/icons/square_sel.png"
