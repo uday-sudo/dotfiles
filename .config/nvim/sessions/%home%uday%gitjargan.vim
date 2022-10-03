@@ -8,19 +8,23 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 let s:shortmess_save = &shortmess
-set shortmess=aoO
-badd +0 /var/tmp/sddmXXhL3hwm.conf
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +19 testing.py
 argglobal
 %argdel
-$argadd /var/tmp/sddmXXhL3hwm.conf
-edit /var/tmp/sddmXXhL3hwm.conf
+$argadd testing.py
+edit testing.py
 argglobal
-let s:l = 1 - ((0 * winheight(0) + 19) / 38)
+let s:l = 19 - ((18 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 0
+keepjumps 19
+normal! 021|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

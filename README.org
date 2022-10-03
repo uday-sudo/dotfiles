@@ -19,6 +19,8 @@
       - kitty
       - qtile
       - awesome
+      - playerctl
+      - betterlockscreen
 
 ** Zathura dependencies:
       + zathura-cb — Comic book support

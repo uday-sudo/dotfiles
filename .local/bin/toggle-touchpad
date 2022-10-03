@@ -1,0 +1,13 @@
+#!/bin/sh
+# toggle-touchpad script
+#
+# Toggles the touchpad on and off. Bind this script to a key to turn on and off
+# your touchpad/trackpad. The F7 key is a good choice
+
+if [ $(xinput list-props "ELAN1203:00 04F3:307A Touchpad" | grep 'Device Enabled' | gawk -F ':' '{ print $2 }') -eq 0 ]; then
+    xinput enable "ELAN1203:00 04F3:307A Touchpad"
+    notify-send --icon=/usr/share/icons/Adwaita/scalable/actions/touchpad-enabled.svg "Enabled" "Your computer's touchpad is enabled."
+else
+    xinput disable "ELAN1203:00 04F3:307A Touchpad"
+    notify-send --icon=/usr/share/icons/Adwaita/scalable/actions/touchpad-disabled.svg "Disabled" "Your computer's touchpad is disabled."
+fi

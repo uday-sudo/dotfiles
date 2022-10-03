@@ -101,8 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"alias updatepls='sudo pacman -Syu'
 alias reborn='reboot'
 alias die='shutdown -P now'
-alias vim='nvim'
-alias vi='nvim'
 alias doom='emacs'
 alias l='ls -l'
 alias pls='sudo'
@@ -117,4 +115,18 @@ alias startlan="sudo systemctl start zerotier-one.service"
 alias joinlan="sudo zerotier-cli join 8056c2e21cfd1358"
 #Created by newuser for 5.8
 eval "$(starship init zsh)"
-export PATH="$PATH:$HOME/.spicetify"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/uday/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/uday/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/uday/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/uday/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<

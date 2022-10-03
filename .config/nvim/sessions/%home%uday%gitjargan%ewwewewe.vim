@@ -3,30 +3,31 @@ let s:so_save = &g:so | let s:siso_save = &g:siso | setg so=0 siso=0 | setl so=-
 let v:this_session=expand("<sfile>:p")
 silent only
 silent tabonly
-cd ~/.doom.d
+cd ~/gitjargan/ewwewewe
 if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 let s:shortmess_save = &shortmess
-set shortmess=aoO
-badd +15 config.el
-badd +88 init.el
-badd +1 packages.el
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +30 ewwWindows.yuck
+badd +5 ewwWidgets.yuck
+badd +3 scripts/workspaces
 argglobal
 %argdel
-$argadd config.el
-$argadd custom.el
-$argadd init.el
-$argadd packages.el
-edit config.el
+$argadd ewwWindows.yuck
+edit scripts/workspaces
 argglobal
-balt init.el
-let s:l = 41 - ((27 * winheight(0) + 19) / 38)
+balt ewwWidgets.yuck
+let s:l = 37 - ((22 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
-normal! 02|
+keepjumps 37
+normal! 061|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

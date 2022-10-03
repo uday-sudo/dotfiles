@@ -8,19 +8,23 @@ if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
   let s:wipebuf = bufnr('%')
 endif
 let s:shortmess_save = &shortmess
-set shortmess=aoO
-badd +33 /var/tmp/sddmXXBYLjDq.conf
+if &shortmess =~ 'A'
+  set shortmess=aoOA
+else
+  set shortmess=aoO
+endif
+badd +0 /var/tmp/pacmanXXNQ7DXc.conf
 argglobal
 %argdel
-$argadd /var/tmp/sddmXXBYLjDq.conf
-edit /var/tmp/sddmXXBYLjDq.conf
+$argadd /var/tmp/pacmanXXNQ7DXc.conf
+edit /var/tmp/pacmanXXNQ7DXc.conf
 argglobal
-let s:l = 33 - ((28 * winheight(0) + 19) / 39)
+let s:l = 29 - ((25 * winheight(0) + 19) / 38)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 33
-normal! 013|
+keepjumps 29
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

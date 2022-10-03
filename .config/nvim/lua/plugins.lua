@@ -3,23 +3,15 @@ return require('packer').startup(function()
       -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    -- Collaborative editing
-    use 'jbyuki/instant.nvim'
-
       --treesitter supported colorschemes(POG)
     use 'rafamadriz/neon'               --this is like onedark and is very poggers
     use 'marko-cerovac/material.nvim'
     use 'sainnhe/sonokai'               --has eyepleasing schemes
     use 'joshdick/onedark.vim'
     use 'sainnhe/gruvbox-material'
-    use "Pocco81/Catppuccino.nvim"
-    use "elianiva/gruvy.nvim"
     use 'EdenEast/nightfox.nvim'
     use "bluz71/vim-moonfly-colors"
-    use 'vigoux/oak'
-
-    -- Dashboard
-    use 'glepnir/dashboard-nvim'
+    use 'shaeinst/roshnivim-cs'         --Black And white Cool Colors
 
     -- Session Management
     use({
@@ -31,38 +23,15 @@ return require('packer').startup(function()
       end,
     })
 
-    use {
-        'hoob3rt/lualine.nvim',
-        config = function()
-            require('config/lualine')
-        end,
-        requires = {
-            'kyazdani42/nvim-web-devicons', opt = true
+        --Treesitter is Treesitter
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+            config = function()
+                require('config/treesitter')
+            end
         }
-    }
-
-    -- GCC and GBC comment feature
-    use {
-        'numToStr/Comment.nvim',
-        commit = "0aaea32f27315e2a99ba4c12ab9def5cbb4842e4",
-        config = function()
-            require('config/comment')
-        end
-    }
-
-    -- Toggle Term
-    use {
-        'akinsho/toggleterm.nvim',
-        config = function()
-            require('config/toggleterm')
-        end
-    }
-
-    --for notetaking and usual day to day stuff
-    use "norcalli/nvim-colorizer.lua"    --Colorizer
-
-    -- For Latex Formulas in Neovim 
-    use "jbyuki/nabla.nvim"
+    
 
     -- LSP components for that fancy IDE stuff in here
     use {
@@ -71,6 +40,46 @@ return require('packer').startup(function()
             require('config/nvim-lspconfig')
         end
     }
+
+    use {
+        'kkharji/lspsaga.nvim',
+        config = function()
+            require('config/lspsaga')
+        end
+    }
+    use 'williamboman/nvim-lsp-installer'
+
+    -- The New League of autocomplete
+    use {
+        'hrsh7th/nvim-cmp',
+        after='nvim-lspconfig',
+        config = function()
+            require('config/nvim-cmp')
+        end
+    }
+
+    use {
+        'hrsh7th/cmp-nvim-lsp',
+        'hrsh7th/cmp-buffer',
+        'hrsh7th/cmp-path',
+        'hrsh7th/cmp-cmdline',
+        'saadparwaiz1/cmp_luasnip'
+    }
+
+
+    -- Snippets Jam
+    use {
+        'L3MON4D3/LuaSnip',
+        tag = 'v<CurrentMajor>.*',
+        config = function()
+            require('luasnip.loaders.from_vscode').lazy_load()
+        end
+    }
+    use 'rafamadriz/friendly-snippets'
+    -- use 'onsails/lspkind-nvim'  -- Adds nerd font icons ( in lualine )
+
+    -- use 'williamboman/nvim-lsp-installer'
+
 
     -- For Java specific things
     --use 'mfussenegger/nvim-jdtls'
@@ -84,14 +93,6 @@ return require('packer').startup(function()
         end
     }
 
-    --For Bufferline
-    use {
-        'akinsho/bufferline.nvim',
-        config = function()
-            require('config/bufferline')
-        end
-    }
-
     -- Transparency
     use {
         'xiyaowong/nvim-transparent',
@@ -99,62 +100,6 @@ return require('packer').startup(function()
             require('config/transparent')
         end
     }
-
-    use {
-        'kosayoda/nvim-lightbulb',
-        config=function()
-            require('config/nvim-lightbulb')
-        end
-    }
-
-    --use'ray-x/lsp_signature.nvim'
-    use 'williamboman/nvim-lsp-installer'
-    --use 'rcarriga/nvim-notify'
-
-    -- Snippets Jam
-    use 'L3MON4D3/LuaSnip'
-    use {
-        'rafamadriz/friendly-snippets',
-        -- after="L3MON4D3/LuaSnip",
-        config = function()
-            require('config/friendly')
-        end
-    }
-    --The New League of autocomplete
-    use 'hrsh7th/cmp-nvim-lsp'
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'saadparwaiz1/cmp_luasnip'
-    use {
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require('config/nvim-cmp')
-        end
-    }
-
-    --Treesitter is Treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate',
-        config = function()
-            require('config/treesitter')
-        end
-    }
-
---[[
-    use {
-            'nvim-treesitter/nvim-treesitter-textobjects'
-    }
-
-    use {
-            'rrethy/nvim-treesitter-textsubjects'
-    }
---]]
-
-    -- LSP bs ends here
-
-    
     
     --Tabout like a pro
     use {
@@ -167,7 +112,8 @@ return require('packer').startup(function()
     }
 
       --register preview and handling
-    use 'gennaro-tedesco/nvim-peekup'
+    --use 'gennaro-tedesco/nvim-peekup'
+    use "tversteeg/registers.nvim"
 
     --fuzzyfinder and stuff
     use {
@@ -185,13 +131,41 @@ return require('packer').startup(function()
         end
     }
 
+    -- Toggle Term
     use {
-        'windwp/nvim-autopairs',        --auto pairing if it is not obvious from the name
+        'akinsho/toggleterm.nvim',
         config = function()
-            require('config/nvim-autopairs')
+            require('config/toggleterm')
         end
     }
 
+    -- use {
+    --     'windwp/nvim-autopairs',        --auto pairing if it is not obvious from the name
+    --     after = 'hrsh7th/nvim-cmp',
+    --     config = function()
+    --         require('config/nvim-autopairs')
+    --     end
+    -- }
+
+    -- Auto pairs
+    use {
+        "windwp/nvim-autopairs",
+        wants = "nvim-treesitter",
+        module = { "nvim-autopairs.completion.cmp", "nvim-autopairs" },
+        config = function()
+            require("config/nvim-autopairs")
+        end
+    }
+
+    -- LSP signatures
+    use {
+        "ray-x/lsp_signature.nvim",
+        config = function()
+            require("config/lsp_signature")
+        end
+    }
+
+    --File Tree
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons',
@@ -199,4 +173,54 @@ return require('packer').startup(function()
             require('config/nvim-tree')
         end
     }
+
+    -- Statusline
+    use {
+        'hoob3rt/lualine.nvim',
+        config = function()
+            require('config/lualine')
+        end,
+        requires = {
+            'kyazdani42/nvim-web-devicons', opt = true
+        }
+    }
+
+    --For Bufferline
+    use {
+        'akinsho/bufferline.nvim',
+        tag = "v2.*",
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function()
+            require('config/bufferline')
+        end
+    }
+
+    --Hop for motion
+    use {
+        'phaazon/hop.nvim',
+        branch = 'v2', -- optional but strongly recommended
+        --config = function()
+        --  -- you can configure Hop the way you like here; see :h hop-config
+        --  require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+        --end
+      }
+
+      -- Sniprun
+      -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}
+
+    --Competitive Programming
+    -- use {
+    --     "p00f/cphelper.nvim",
+    --     requires = 'nvim-lua/plenary.nvim',
+    -- }
+
+    -- use {
+    --     'xeluxee/competitest.nvim',
+    --     requires = 'MunifTanjim/nui.nvim',
+    --     config = function() require'competitest'.setup() end
+    -- }
+
+    --for notetaking and usual day to day stuff
+    use "norcalli/nvim-colorizer.lua"    --Colorizer
+    use 'davidgranstrom/nvim-markdown-preview'   --markdown preview
 end)
