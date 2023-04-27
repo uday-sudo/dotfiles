@@ -113,6 +113,8 @@ export VISUAL=nvim;
 export EDITOR=nvim;
 alias startlan="sudo systemctl start zerotier-one.service"
 alias joinlan="sudo zerotier-cli join 8056c2e21cfd1358"
+alias studio="/opt/android-studio/bin/studio.sh"
+alias gosc="cd ~/Desktop/scripties"
 #Created by newuser for 5.8
 eval "$(starship init zsh)"
 
@@ -130,3 +132,7 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+export LC_ALL=en_IN.UTF-8
+export LANG=en_IN.UTF-8
+# [ -z "$TMUX" ] && tmux attach || tmux
+# clear

@@ -13,18 +13,18 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +0 ~/.config/kitty/kitty.conf
+badd +2 goo.cpp
 argglobal
 %argdel
-$argadd ~/.config/kitty/kitty.conf
-edit ~/.config/kitty/kitty.conf
+$argadd goo.cpp
+edit goo.cpp
 argglobal
-let s:l = 761 - ((597 * winheight(0) + 18) / 36)
+let s:l = 2 - ((1 * winheight(0) + 18) / 36)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 761
-normal! 023|
+keepjumps 2
+normal! 019|
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf

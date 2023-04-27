@@ -91,7 +91,7 @@ map_key('i', '<C-k>', '<up>')
 map_key('i', '<C-l>', '<right>')
 
 -- Some common shortcut
-map_key('i', '<Space>fw', '<cmd>w<CR>')
+map_key('n', '<Space>fw', '<cmd>w<CR>')
 
 -- Map Esc, to perform quick switching between Normal and Insert mode
 map_key('i', 'jk', '<ESC>')
@@ -139,6 +139,9 @@ map_key('n', '<Space>tf', "<cmd>NvimTreeFindFile<CR>")
 
 -- Hop Word
 map_key('n', '<Space>fw', "<cmd>HopWord<CR>")
+
+-- Control Backspace in insert
+-- map_key('i', '<C-BS>', "<C-w>")
 
 
 --[[
