@@ -1,11 +1,3 @@
-# To run TPM
-set -g @plugin 'tmux-plugins/tpm'
-set -g @plugin 'tmux-plugins/tmux-sensible'
-set -g @plugin 'christoomey/vim-tmux-navigator'
-set -g @plugin 'tmux-plugins/tmux-yank'
-
-run '~/.tmux/plugins/tpm/tpm'
-
 # Automatically set window title
 set-window-option -g automatic-rename on
 set-option -g set-titles on
@@ -16,6 +8,7 @@ bind r source-file ~/.tmux.conf
 set -g default-terminal "xterm-256color"
 #set -ga terminal-overrides "xterm-256color*:Tc"
 set -g status-keys vi
+set -g history-limit 10000
 
 setw -g mode-keys vi
 setw -g mouse on
@@ -37,8 +30,8 @@ bind -n S-Left previous-window
 bind -n S-Right next-window
 
 # Set easier window split keys
-bind-key v split-window -h -c '#{pane_current_path}'
-bind-key h split-window -v -c '#{pane_current_path}'
+bind-key v split-window -h
+bind-key h split-window -v
 
 # --> Catppuccin
 thm_bg="#1e1e2e"
