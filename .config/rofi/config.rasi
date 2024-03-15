@@ -1,6 +1,22 @@
-/** Basic config file **/
+//@theme "/home/hooman/.local/share/rofi/themes/squared-nord.rasi"
+//@theme "/home/hooman/.local/share/rofi/themes/spotlight-dark.rasi"
+@theme "/home/hooman/.config/rofi/catpuccin-mocha.rasi"
+
+element {
+  orientation: horizontal;
+  children: [ element-icon, element-text ];
+  spacing: 5px;
+}
+
+entry {
+    placeholder: "Type here";
+    cursor: pointer;
+}
+
+element-icon {
+    size: 2em;
+}
 
 configuration {
-  show-icons:         true;
-  icon-theme:         "Papirus Light";
+    icon-theme: "Papirus-Dark";
 }

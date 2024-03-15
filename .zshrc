@@ -113,21 +113,23 @@ export VISUAL=nvim;
 export EDITOR=nvim;
 alias startlan="sudo systemctl start zerotier-one.service"
 alias joinlan="sudo zerotier-cli join 8056c2e21cfd1358"
+alias joinlan2="sudo zerotier-cli join 9f77fc393ea8a6bf"
 alias studio="/opt/android-studio/bin/studio.sh"
 alias gosc="cd ~/Desktop/scripties"
+alias icat="kitty +kitten icat"
 #Created by newuser for 5.8
 eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/uday/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/hooman/.local/bin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/uday/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/uday/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/hooman/.local/bin/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/hooman/.local/bin/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/uday/miniconda3/bin:$PATH"
+        export PATH="/home/hooman/.local/bin/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
@@ -136,3 +138,15 @@ export LC_ALL=en_IN.UTF-8
 export LANG=en_IN.UTF-8
 # [ -z "$TMUX" ] && tmux attach || tmux
 # clear
+export PATH="/usr/local/cuda-12.1/bin:$PATH"
+
+export LD_LIBRARY_PATH="/usr/local/cuda-12.1/lib64:$LD_LIBRARY_PATH"
+
+# bun completions
+[ -s "/home/hooman/.bun/_bun" ] && source "/home/hooman/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export PATH=$PATH:/home/hooman/.spicetify
