@@ -1,9 +1,0 @@
-[user]
-indicatorStyle=0
-indicatorOrientation=2
-indicatorColor=rgb(255,120,0)
-forceIconSize=true
-iconSize=24
-noWindowsListIfSingle=true
-pinned=/usr/share/applications/xfce4-terminal.desktop;
-onlyDisplayVisible=true
