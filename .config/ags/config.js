@@ -17,7 +17,6 @@ import NotificationPopups from './modules/notifications/NotificationPopups.js';
 import Bar from './modules/bar/Bar.js'
 import { setupDateMenu } from './modules/datemenu/DateMenu.js';
 import { setupQuickSettings } from './modules/quicksettings/QuickSettings.js';
-import Test from './test.js';
 
 const range = (length, start = 1) => Array.from({ length }, (_, i) => i + start);
 function forMonitors(widget) {
@@ -50,7 +49,6 @@ const Windows = () => [
   // Dock(),
   Verification(),
   Overview(),
-  Test(),
   forMonitors(NotificationPopups),
   forMonitors(Bar),
   forMonitors(OSD),
