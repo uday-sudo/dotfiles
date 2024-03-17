@@ -80,7 +80,7 @@ const options = {
     },
     taskbar: {
       monochrome: false,
-      exclusive: true,
+      exclusive: false,
     },
     messages: {
       action: () => App.toggleWindow("datemenu"),

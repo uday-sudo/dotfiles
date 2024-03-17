@@ -30,3 +30,6 @@ ln -s -t ~/.config/ $(pwd)/.config/zellij
 
 mv ~/.config/starship.toml ~/.config/starship.toml.bak
 ln -s -t ~/.config/ $(pwd)/.config/starship.toml
+
+mv ~/.config/hypr ~/.config/hypr.bak
+ln -s -t ~/.config/ $(pwd)/.config/hypr
