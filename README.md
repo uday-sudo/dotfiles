@@ -54,6 +54,15 @@ Use this command in your keybinds to toggle widgets, such as for Hyprland:
 
       bind=CTRL SHIFT, Q,  exec, ags -t powermenu
 
+You should set the following values to true in options.js to allow live CSS updation and enable sass compilation (Do this if CSS is not working):
+
+      const options = {
+            recompilesass: false,
+            monitorcss: false,
+            ...
+      }
+
+
 ### Zathura dependencies:
       zathura-cb — Comic book support
       zathura-djvu — DjVu support

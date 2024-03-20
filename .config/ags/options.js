@@ -1,7 +1,7 @@
 
 const options = {
-  recompileSass: true,
-  monitorCSS: true,
+  recompileSass: false,
+  monitorCSS: false,
   theme: {
     PopupTransitionDuration: 400,
     PopupCloseDuration: 300,
